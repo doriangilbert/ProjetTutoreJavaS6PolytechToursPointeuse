@@ -1,6 +1,7 @@
 import java.lang.reflect.Array;
 import java.net.InetSocketAddress;
 import java.util.Map;
+import java.time;
 
 public class TimeClock
 {
@@ -32,7 +33,7 @@ public class TimeClock
 	{
 		int [] date = new int[2];
 		date[0] = 1;
-		date[1] = 1;
+		date[1] = Year.now();
 		return date;
 	}
 	

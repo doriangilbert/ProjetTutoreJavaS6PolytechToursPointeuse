@@ -4,12 +4,19 @@ import java.util.Map;
 
 public class TimeClock
 {
+	//***Attributs***//
 	private float Version;
 	private InetSocketAddress IPPort;
 	private Array CheckStorage;
 	private Map EmployeeCheck;
 	
 	
+	//***Methodes***//
+	TimeClock()
+	{
+		this.Version = 0;
+		
+	}
 	
 	public void Autocomplete()
 	{
@@ -19,6 +26,14 @@ public class TimeClock
 	void RoundTime()
 	{
 		
+	}
+	
+	int[] GetDate()
+	{
+		int [] date = new int[2];
+		date[0] = 1;
+		date[1] = 1;
+		return date;
 	}
 	
 	void DisplayTime()
@@ -31,4 +46,33 @@ public class TimeClock
 		
 	}
 	
+	float DisplayVersion()
+	{
+		return this.Version;
+	}
+	
+	void ModifierVersion(float version)
+	{
+		this.Version = version;
+	}
+	
+	void DisplayEmployee()
+	{
+		
+	}
+	
+	void getEmployee()
+	{
+		
+	}
+	
+	void SendMapCheck()
+	{
+		
+	}
+	
+	boolean VerifyConnection()
+	{
+		return false;
+	}
 }

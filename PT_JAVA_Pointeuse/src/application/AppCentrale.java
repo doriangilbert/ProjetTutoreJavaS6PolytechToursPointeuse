@@ -34,6 +34,12 @@ public class AppCentrale extends Application {
 			
 			String message = new TCPServerMessage().recevoir();
 			
+			/*boolean ok = true;
+			do {
+				String message = new TCPServerMessage().recevoir();
+				System.out.println("SERVEUR A RECU  : "+ message);
+			} while(ok);*/
+			
 			Text scenetitle = new Text(message);
 			scenetitle.setFont(Font.font("Tahoma", FontWeight.NORMAL, 12));
 			grid.add(scenetitle, 0, 0, 2, 1);

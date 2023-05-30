@@ -3,9 +3,14 @@ import java.io.IOException;
 import java.io.OutputStream;
 
 public class TCPClientMessage extends TCPClientBuilder {
+	
+	static boolean isAlreadySet = false;
+	
 	public void envoyer(String message) {
 		try {
-			setSocket();
+			if (isAlreadySet == false) {
+				setSocket();
+			}
 			//String msOut = "Aujourd'hui, TP ASR Java.";
 			String msOut = message;
 			OutputStream out = s.getOutputStream();
@@ -15,7 +20,7 @@ public class TCPClientMessage extends TCPClientBuilder {
 			setStreamBuffer(msOut.getBytes().length + 1);
 			writeMessage(out, msOut);
 			out.close();
-			s.close();
+			//s.close();
 		} catch (IOException e) {
 			System.out.println("IOException TCPClientMessage");
 		}

@@ -40,7 +40,7 @@ public class AppEmulateur extends Application {
 
 			TextField userTextField = new TextField();
 			grid.add(userTextField, 1, 1);
-			Button btn = new Button("Sign in");
+			Button btn = new Button("Check in/out");
 			HBox hbBtn = new HBox(10);
 			hbBtn.setAlignment(Pos.BOTTOM_RIGHT);
 			hbBtn.getChildren().add(btn);
@@ -52,11 +52,13 @@ public class AppEmulateur extends Application {
 				@Override
 				public void handle(ActionEvent e) {
 					actiontarget.setFill(Color.FIREBRICK);
-					actiontarget.setText("Sign in button pressed");
-					String message = actiontarget.getText();
+					actiontarget.setText("Check sent !");
+					String message = userTextField.getText();
 					new TCPClientMessage().envoyer(message);
+					start(primaryStage);
 				}
 			});
+			
 
 		} catch (Exception e) {
 			e.printStackTrace();

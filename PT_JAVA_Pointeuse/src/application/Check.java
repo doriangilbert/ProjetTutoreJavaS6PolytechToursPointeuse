@@ -4,22 +4,26 @@ import java.io.Serializable;
 import java.util.Date;
 
 public class Check implements Serializable {
-    public boolean EstUnCheckIn;
-    public boolean EstUneErreur;
+    public boolean IsACheckIn;
+    public boolean IsAnError;
     public Date date;
     public int hour;
     public int minutes;
 
-    public Check(boolean EstUnCheckIn,boolean EstUneErreur, Date date,int hour, int minutes){
-        this.EstUnCheckIn=EstUnCheckIn;
-        this.EstUneErreur=EstUneErreur;
+    public Check(boolean IsACheckIn,boolean IsAnError, Date date,int hour, int minutes){
+        this.IsACheckIn=IsACheckIn;
+        this.IsAnError=IsAnError;
         this.date =date;
         this.hour = hour;
         this.minutes = minutes;
     }
 
-    public boolean getEstUnCheckIn() {
-        return EstUnCheckIn;
+    public boolean getisACheckIn() {
+        return IsACheckIn;
+    }
+
+    public boolean getisAnError() {
+        return IsAnError;
     }
 
     public Date getDate() {
@@ -34,7 +38,11 @@ public class Check implements Serializable {
         return minutes;
     }
 
-    public void setEstUnCheckIn(boolean estUnCheckIn) {
-        EstUnCheckIn = estUnCheckIn;
+    public void setIsACheckIn(boolean IsACheckIn) {
+        this.IsACheckIn = IsACheckIn;
+    }
+
+    public void setIsAnError(boolean IsAnError) {
+        this.IsAnError = IsAnError;
     }
 }

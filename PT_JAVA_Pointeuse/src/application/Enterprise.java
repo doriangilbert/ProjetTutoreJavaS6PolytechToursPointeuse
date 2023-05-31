@@ -5,19 +5,19 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Entreprise implements Serializable {
+public class Enterprise implements Serializable {
 
     private String name;
 
     private List<Department> ListDepartment;
 
-    public Entreprise(){
+    public Enterprise(){
         this.name=null;
         ListDepartment=new ArrayList<>();
 
     }
 
-    public Entreprise(String name){
+    public Enterprise(String name){
         this.name=name;
         ListDepartment=new ArrayList<>();
 

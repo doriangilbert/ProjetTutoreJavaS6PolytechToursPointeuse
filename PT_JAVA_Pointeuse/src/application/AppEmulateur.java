@@ -118,7 +118,8 @@ public class AppEmulateur extends Application
 					actiontarget.setFill(Color.FIREBRICK);
 					actiontarget.setText("Check sent !");
 					String message = userTextField.getText();
-					new TCPClientMessage().envoyer(message);
+					System.out.println("Bonjour je suis le emulateur et j'envoie : " + message);
+					new TCPClientMessage().send(message);
 					start(primaryStage);
 				}
 			});

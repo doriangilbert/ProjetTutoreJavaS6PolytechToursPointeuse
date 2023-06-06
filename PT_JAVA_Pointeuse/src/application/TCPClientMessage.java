@@ -4,22 +4,18 @@ import java.io.OutputStream;
 
 public class TCPClientMessage extends TCPClientBuilder {
 	
-	static boolean isAlreadySet = false;
-	
-	public void envoyer(String message) {
+	public void send(String message) {
 		try {
-			if (isAlreadySet == false) {
-				setSocket();
-			}
-			//String msOut = "Aujourd'hui, TP ASR Java.";
+			setSocket();
 			String msOut = message;
+			System.out.println("Bonjour je suis le TCPClienMessage UwU et j'envoie ça : " + msOut);
 			OutputStream out = s.getOutputStream();
 			// byte[] buffer = msOut.getBytes();
 			// out.write(buffer);
 			// out.flush();
 			setStreamBuffer(msOut.getBytes().length + 1);
 			writeMessage(out, msOut);
-			out.close();
+			//out.close();
 			//s.close();
 		} catch (IOException e) {
 			System.out.println("IOException TCPClientMessage");

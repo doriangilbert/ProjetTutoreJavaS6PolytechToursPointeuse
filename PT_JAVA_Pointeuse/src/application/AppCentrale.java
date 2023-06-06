@@ -32,17 +32,16 @@ public class AppCentrale extends Application {
 			primaryStage.setTitle("PT_JAVA_Pointeuse : Application Centrale");
 			primaryStage.show();
 			
-			String message = new TCPServerMessage().recevoir();
-			
-			/*boolean ok = true;
-			do {
-				String message = new TCPServerMessage().recevoir();
-				System.out.println("SERVEUR A RECU  : "+ message);
-			} while(ok);*/
-			
-			Text scenetitle = new Text(message);
+			Text scenetitle = new Text();
 			scenetitle.setFont(Font.font("Tahoma", FontWeight.NORMAL, 12));
 			grid.add(scenetitle, 0, 0, 2, 1);
+			
+			//do {
+				String message = new TCPServerMessage().receive();
+				System.out.println("allo je suis l'app centrale : " + message);
+				scenetitle.setText(message);
+			//} while (true);
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

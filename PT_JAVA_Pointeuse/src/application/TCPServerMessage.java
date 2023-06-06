@@ -4,14 +4,10 @@ import java.io.InputStream;
 
 public class TCPServerMessage extends TCPServerBuilder {
 	
-	static boolean isAlreadySet = false;
-	
-	public String recevoir() {
+	public String receive() {
 		String msIn ="";
 		try {
-			if (isAlreadySet == false) {
-				setSocket();
-			}
+			setSocket();
 			s = ss.accept();
 			InputStream in = s.getInputStream();
 			//byte[] buffer = new byte[8192];
@@ -19,8 +15,9 @@ public class TCPServerMessage extends TCPServerBuilder {
 			//String msIn = new String(buffer, 0, count);
 			setStreamBuffer(ss.getReceiveBufferSize());
 			msIn = readMessage(in);
+			System.out.println("SALUT JE SUIS LE TCPSERVERMESSAGE ET JE VAIS TE FACTORISER LA TETE AVEC : " + msIn);
 			//System.out.println(msIn);
-			in.close();
+			//in.close();
 			//s.close();
 			//ss.close();
 		} catch (IOException e) {

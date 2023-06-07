@@ -8,15 +8,12 @@ public class TCPClientMessage extends TCPClientBuilder {
 		try {
 			setSocket();
 			String msOut = message;
-			System.out.println("Bonjour je suis le TCPClienMessage UwU et j'envoie ça : " + msOut);
+			System.out.println("TCPClient : Message Sent : " + msOut);
 			OutputStream out = s.getOutputStream();
-			// byte[] buffer = msOut.getBytes();
-			// out.write(buffer);
-			// out.flush();
 			setStreamBuffer(msOut.getBytes().length + 1);
 			writeMessage(out, msOut);
 			//out.close();
-			//s.close();
+			s.close();
 		} catch (IOException e) {
 			System.out.println("IOException TCPClientMessage");
 		}

@@ -36,11 +36,10 @@ public class AppCentrale extends Application {
 			scenetitle.setFont(Font.font("Tahoma", FontWeight.NORMAL, 12));
 			grid.add(scenetitle, 0, 0, 2, 1);
 			
-			//do {
+			do {
 				String message = new TCPServerMessage().receive();
-				System.out.println("allo je suis l'app centrale : " + message);
-				scenetitle.setText(message);
-			//} while (true);
+				System.out.println("AppCentrale : Message Received : " + message);
+			} while (true);
 			
 		} catch (Exception e) {
 			e.printStackTrace();

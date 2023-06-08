@@ -2,7 +2,14 @@ package application;
 import java.io.IOException;
 import java.io.InputStream;
 
-public class TCPServerMessage extends TCPServerBuilder {
+public class TCPServerMessage extends TCPServerBuilder implements Runnable {
+	
+	public void run() {
+		do {
+			String message = this.receive();
+			System.out.println("AppCentrale : Message Received : " + message);
+		} while (true);
+	}
 	
 	public String receive() {
 		String msIn ="";

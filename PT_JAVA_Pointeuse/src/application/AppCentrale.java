@@ -1,13 +1,9 @@
 package application;
 
 import javafx.application.Application;
-import javafx.geometry.Insets;
-import javafx.geometry.Pos;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.layout.GridPane;
-import javafx.scene.text.Font;
-import javafx.scene.text.FontWeight;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 public class AppCentrale extends Application {
@@ -19,7 +15,7 @@ public class AppCentrale extends Application {
 			Scene scene = new Scene(root, 400, 400);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());*/
 			
-			GridPane grid = new GridPane();
+			/*GridPane grid = new GridPane();
 			grid.setAlignment(Pos.CENTER);
 			grid.setHgap(10);
 			grid.setVgap(10);
@@ -34,12 +30,22 @@ public class AppCentrale extends Application {
 			
 			Text scenetitle = new Text();
 			scenetitle.setFont(Font.font("Tahoma", FontWeight.NORMAL, 12));
-			grid.add(scenetitle, 0, 0, 2, 1);
+			grid.add(scenetitle, 0, 0, 2, 1);*/
 			
-			do {
+			Parent root = FXMLLoader.load(getClass().getResource("AppCentraleView.fxml"));
+		    
+	        Scene scene = new Scene(root, 640, 400);
+	    
+	        primaryStage.setTitle("PT_JAVA_Pointeuse : Application Centrale");
+	        primaryStage.setScene(scene);
+	        primaryStage.show();
+			
+	        new Thread(new TCPServerMessage()).start(); 
+	        
+			/*do {
 				String message = new TCPServerMessage().receive();
 				System.out.println("AppCentrale : Message Received : " + message);
-			} while (true);
+			} while (true);*/
 			
 		} catch (Exception e) {
 			e.printStackTrace();

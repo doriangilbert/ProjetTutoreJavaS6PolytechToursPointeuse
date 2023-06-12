@@ -1,24 +1,37 @@
 package application;
 
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
+
 import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Department implements Serializable {
-    private String name;
+    private transient StringProperty name;
     private List<Employee> ListEmployees;
+
+    private void InitProperties(){
+        this.name=new SimpleStringProperty();
+        ListEmployees=new ArrayList<>();
+    }
+    public Department(){
+        InitProperties();
+    }
     public Department(String name){
-        this.name=name;
+        this.name=new SimpleStringProperty(name);
         ListEmployees=new ArrayList<>();
     }
 
     public String getName() {
-        return name;
+        return name.get();
     }
 
     public void setName(String name) {
-        this.name = name;
+        this.name = new SimpleStringProperty(name);
     }
 
     public List<Employee> getListEmployees() {
@@ -48,6 +61,18 @@ public class Department implements Serializable {
         if (ListEmployees.stream().map(Employee::getId).anyMatch(EmployeeParam.getId()::equals)){
             ListEmployees.remove(EmployeeParam);
         }
+    }
+
+    private void writeObject(ObjectOutputStream s) throws IOException {
+        s.defaultWriteObject();
+        s.writeUTF(name.getValueSafe());
+        s.writeObject(ListEmployees);
+    }
+    private void readObject(ObjectInputStream s) throws IOException, ClassNotFoundException {
+        InitProperties();
+        s.defaultReadObject();
+        this.name.set(s.readUTF());
+        // set values in the same order as writeObject()
     }
 
 }

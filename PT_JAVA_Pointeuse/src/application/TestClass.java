@@ -35,7 +35,7 @@ public class TestClass {
 
             }
             catch(IOException e){
-
+                System.out.println("erreur");
             }
 
 

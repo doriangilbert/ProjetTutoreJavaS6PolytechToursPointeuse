@@ -15,9 +15,9 @@
 						<Font size="24.0" />
 					</font>
 				</Label>
-				<Button id="button1" layoutX="290.0" layoutY="152.0" mnemonicParsing="false" onAction="#handleButton1Action" text="Button 1" />
-				<Button id="button2" layoutX="290.0" layoutY="236.0" mnemonicParsing="false" onAction="#handleButton2Action" text="Button 2" />
-				<Button id="button3" layoutX="290.0" layoutY="318.0" mnemonicParsing="false" onAction="#handleButton3Action" text="Button 3" />
+				<Button id="buttonStaffManagement" layoutX="249.0" layoutY="150.0" mnemonicParsing="false" onAction="#handleButtonStaffManagementAction" text="Staff management" />
+				<Button id="buttonCheckInOutHistory" layoutX="244.0" layoutY="232.0" mnemonicParsing="false" onAction="#handleButtonCheckInOutHistoryAction" text="Check in/out history" />
+				<Button id="buttonParameters" layoutX="273.0" layoutY="314.0" mnemonicParsing="false" onAction="#handleButtonParametersAction" text="Parameters" />
 			</children>
 		</AnchorPane>
 	</children>

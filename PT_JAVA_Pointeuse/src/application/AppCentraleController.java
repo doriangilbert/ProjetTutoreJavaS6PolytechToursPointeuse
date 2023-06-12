@@ -6,25 +6,25 @@ import javafx.scene.control.Button;
 
 public class AppCentraleController {
 	@FXML
-	private Button button1;
+	private Button buttonStaffManagement;
 	@FXML
-	private Button button2;
+	private Button buttonCheckInOutHistory;
 	@FXML
-	private Button button3;
+	private Button buttonParameters;
 
 	@FXML
-	protected void handleButton1Action(ActionEvent event) {
-		System.out.println("Button 1");
+	protected void handleButtonStaffManagementAction(ActionEvent event) {
+		System.out.println("Button StaffManagement");
 	}
 	
 	@FXML
-	protected void handleButton2Action(ActionEvent event) {
-		System.out.println("Button 2");
+	protected void handleButtonCheckInOutHistoryAction(ActionEvent event) {
+		System.out.println("Button CheckInOutHistory");
 	}
 	
 	@FXML
-	protected void handleButton3Action(ActionEvent event) {
-		System.out.println("Button 3");
+	protected void handleButtonParametersAction(ActionEvent event) {
+		System.out.println("Button Parameters");
 	}
 	
 }

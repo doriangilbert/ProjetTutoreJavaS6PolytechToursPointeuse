@@ -2,15 +2,11 @@ package application;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
 public class AppEmulateurController {
 	@FXML
 	private TextField textFieldCheckInOut;
-	
-	@FXML
-	private Button buttonCheckInOut;
 
 	@FXML
 	protected void handleButtonCheckInOutAction(ActionEvent event) {
@@ -20,5 +16,4 @@ public class AppEmulateurController {
 		new TCPClientMessage().send(message);
 		textFieldCheckInOut.clear();
 	}
-	
 }

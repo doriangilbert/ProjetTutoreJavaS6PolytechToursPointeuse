@@ -12,10 +12,14 @@ import static java.lang.Thread.sleep;
 
 public class AppCentrale extends Application {
 
+	public static Stage primaryStage;
+	public static Parent root;
+	
 	public static Enterprise Enterprise1;
 
 	@Override
 	public void start(Stage primaryStage) {
+		AppCentrale.primaryStage = primaryStage;
 		try {
 			/*BorderPane root = new BorderPane();
 			Scene scene = new Scene(root, 400, 400);
@@ -38,13 +42,13 @@ public class AppCentrale extends Application {
 			scenetitle.setFont(Font.font("Tahoma", FontWeight.NORMAL, 12));
 			grid.add(scenetitle, 0, 0, 2, 1);*/
 			
-			Parent root = FXMLLoader.load(getClass().getResource("AppCentraleView.fxml"));
+			root = FXMLLoader.load(getClass().getResource("AppCentraleView.fxml"));
 		    
 	        Scene scene = new Scene(root, 640, 400);
 	    
-	        primaryStage.setTitle("PT_JAVA_Pointeuse : Application Centrale");
-	        primaryStage.setScene(scene);
-	        primaryStage.show();
+	        AppCentrale.primaryStage.setTitle("PT_JAVA_Pointeuse : Application Centrale");
+	        AppCentrale.primaryStage.setScene(scene);
+	        AppCentrale.primaryStage.show();
 			
 	        File Fichier=new File("Entreprise1.dat");
 			Enterprise1=new Enterprise();

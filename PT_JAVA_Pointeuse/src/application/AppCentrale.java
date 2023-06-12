@@ -6,7 +6,13 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import java.io.*;
+
+import static java.lang.Thread.sleep;
+
 public class AppCentrale extends Application {
+
+	public static Enterprise Enterprise1;
 
 	@Override
 	public void start(Stage primaryStage) {
@@ -40,7 +46,14 @@ public class AppCentrale extends Application {
 	        primaryStage.setScene(scene);
 	        primaryStage.show();
 			
-	        new Thread(new TCPServerMessage()).start(); 
+	        File Fichier=new File("Entreprise1.dat");
+			Enterprise1=new Enterprise();
+			if (Fichier.exists()){
+				Enterprise1=Deserialization("Entreprise1.dat");
+				System.out.println(Enterprise1.getName());
+			}
+			new Thread(new AppCentraleSerialization()).start();
+			new Thread(new TCPServerMessage()).start();
 	        
 			/*do {
 				String message = new TCPServerMessage().receive();
@@ -55,4 +68,29 @@ public class AppCentrale extends Application {
 	public static void main(String[] args) {
 		launch(args);
 	}
+
+	public static void Serialization(String NomFichier) throws IOException, InterruptedException {
+		while(true){
+			FileOutputStream fos = new FileOutputStream(NomFichier);
+			ObjectOutputStream oos = new ObjectOutputStream(fos);
+			oos.writeObject(Enterprise1);
+			oos.close();
+			sleep(5000);
+		}
+	}
+
+	public static Enterprise Deserialization(String NomFichier) throws IOException {
+		FileInputStream fis = new FileInputStream(NomFichier);
+		ObjectInputStream ois = new ObjectInputStream(fis);
+		Enterprise enterpriseParam = new Enterprise();
+		try{
+			enterpriseParam =(Enterprise) ois.readObject();
+		}
+		catch (ClassNotFoundException e){
+
+		}
+		ois.close();
+		return enterpriseParam;
+	}
 }
+

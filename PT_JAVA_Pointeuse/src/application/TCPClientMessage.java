@@ -1,9 +1,10 @@
 package application;
+
 import java.io.IOException;
 import java.io.OutputStream;
 
 public class TCPClientMessage extends TCPClientBuilder {
-	
+
 	public void send(String message) {
 		try {
 			setSocket();
@@ -12,7 +13,6 @@ public class TCPClientMessage extends TCPClientBuilder {
 			OutputStream out = s.getOutputStream();
 			setStreamBuffer(msOut.getBytes().length + 1);
 			writeMessage(out, msOut);
-			//out.close();
 			s.close();
 		} catch (IOException e) {
 			System.out.println("IOException TCPClientMessage");

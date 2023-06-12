@@ -1,4 +1,5 @@
 package application;
+
 class TCPBuffer {
 	protected byte[] buffer;
 	private final int size = 8192;

@@ -1,18 +1,19 @@
 package application;
+
 import java.io.IOException;
 import java.io.InputStream;
 
 public class TCPServerMessage extends TCPServerBuilder implements Runnable {
-	
+
 	public void run() {
 		do {
 			String message = this.receive();
 			System.out.println("AppCentrale : Message Received : " + message);
 		} while (true);
 	}
-	
+
 	public String receive() {
-		String msIn ="";
+		String msIn = "";
 		try {
 			setSocket();
 			s = ss.accept();
@@ -20,8 +21,6 @@ public class TCPServerMessage extends TCPServerBuilder implements Runnable {
 			setStreamBuffer(ss.getReceiveBufferSize());
 			msIn = readMessage(in);
 			System.out.println("TCPServer : Message Received : " + msIn);
-			//System.out.println(msIn);
-			//in.close();
 			s.close();
 			ss.close();
 		} catch (IOException e) {

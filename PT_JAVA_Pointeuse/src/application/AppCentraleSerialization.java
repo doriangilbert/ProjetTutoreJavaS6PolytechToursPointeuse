@@ -17,7 +17,7 @@ public class AppCentraleSerialization implements Runnable {
                     ObjectOutputStream oos = new ObjectOutputStream(fos);
                     oos.writeObject(Enterprise1);
                     oos.close();
-                    System.out.println("Sauvegarde Finalisé");
+                    System.out.println("Save Finished");
                     sleep(5000);
                 }
                 catch (IOException | InterruptedException e){

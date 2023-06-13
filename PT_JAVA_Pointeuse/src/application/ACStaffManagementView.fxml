@@ -29,7 +29,7 @@
                   <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                </columnResizePolicy>
             </TableView>
-            <Button id="buttonCreateEmployee" layoutX="254.0" layoutY="302.0" mnemonicParsing="false" text="Create employee" />
+            <Button id="buttonCreateEmployee" layoutX="254.0" layoutY="302.0" mnemonicParsing="false" text="Create employee" onAction="#handleButtonCreateEmployee" />
             <Button id="buttonBackToHome" layoutX="265.0" layoutY="355.0" mnemonicParsing="false" text="Back to home" onAction="#handleButtonBackToHome" />
          </children>
     </AnchorPane>

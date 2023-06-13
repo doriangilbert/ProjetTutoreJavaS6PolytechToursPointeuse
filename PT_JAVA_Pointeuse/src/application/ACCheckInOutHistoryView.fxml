@@ -30,7 +30,7 @@
                   <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                </columnResizePolicy>
             </TableView>
-            <Button id="buttonTodayChecks" layoutX="248.0" layoutY="303.0" mnemonicParsing="false" text="See today's checks" />
+            <Button id="buttonTodayChecks" layoutX="248.0" layoutY="303.0" mnemonicParsing="false" text="See today's checks" onAction="#handleButtonTodayChecks" />
             <Button id="buttonBackToHome" layoutX="265.0" layoutY="355.0" mnemonicParsing="false" text="Back to home" onAction="#handleButtonBackToHome" />
          </children>
     </AnchorPane>

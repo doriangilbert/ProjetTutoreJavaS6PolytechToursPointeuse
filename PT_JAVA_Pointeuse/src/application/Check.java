@@ -17,27 +17,22 @@ public class Check implements Serializable {
 	public transient BooleanProperty IsACheckIn;
 	public transient BooleanProperty IsAnError;
 	public transient ObjectProperty<Date> date;
-	public transient IntegerProperty hour;
-	public transient IntegerProperty minutes;
-
+	
 	private void InitProperties() {
 		this.IsACheckIn = new SimpleBooleanProperty();
 		this.IsAnError = new SimpleBooleanProperty();
 		this.date = new SimpleObjectProperty<>();
-		this.hour = new SimpleIntegerProperty();
-		this.minutes = new SimpleIntegerProperty();
 	}
 
 	public Check() {
 		InitProperties();
 	}
 
-	public Check(boolean IsACheckIn, boolean IsAnError, Date date, int hour, int minutes) {
+	public Check(boolean IsACheckIn, boolean IsAnError, Date date) {
+		InitProperties();
 		this.IsACheckIn = new SimpleBooleanProperty(IsACheckIn);
 		this.IsAnError = new SimpleBooleanProperty(IsAnError);
 		this.date = new SimpleObjectProperty<>(date);
-		this.hour = new SimpleIntegerProperty(hour);
-		this.minutes = new SimpleIntegerProperty(minutes);
 	}
 
 	public boolean getisACheckIn() {
@@ -50,14 +45,6 @@ public class Check implements Serializable {
 
 	public Date getDate() {
 		return date.get();
-	}
-
-	public int getHour() {
-		return hour.get();
-	}
-
-	public int getMinutes() {
-		return minutes.get();
 	}
 
 	public void setIsACheckIn(boolean IsACheckIn) {
@@ -73,8 +60,7 @@ public class Check implements Serializable {
 		s.writeBoolean(IsACheckIn.getValue());
 		s.writeBoolean(IsAnError.getValue());
 		s.writeObject(date.getValue());
-		s.writeInt(hour.getValue());
-		s.writeInt(minutes.getValue());
+
 	}
 
 	private void readObject(ObjectInputStream s) throws IOException, ClassNotFoundException {
@@ -83,8 +69,6 @@ public class Check implements Serializable {
 		IsACheckIn.set(s.readBoolean());
 		IsAnError.set(s.readBoolean());
 		date.set((Date) s.readObject());
-		hour.set(s.readInt());
-		minutes.set(s.readInt());
 		// set values in the same order as writeObject()
 	}
 }

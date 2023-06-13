@@ -5,12 +5,13 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.time.DayOfWeek;
 import java.util.Date;
 import java.util.List;
 
 public class TestClass {
 	public static void main(String[] args) {
-		Check Check1 = new Check(true, false, new Date(), 14, 15);
+		Check Check1 = new Check(true, false, new Date());
 		Employee Employee1 = new Employee("475", "Mathéo", "Dhondt");
 		Employee1.addCheck(Check1);
 		Department Department1 = new Department("Informatique");
@@ -33,10 +34,12 @@ public class TestClass {
 			enterprise2.DeleteDepartment(DepartmentDel);
 			System.out.println(enterprise2.getListDepartment().size());
 			enterprise2.addDepartement(Department1);
-			Check Check2 = new Check(true, false, new Date(), 15, 06);
+			Check Check2 = new Check(true, false, new Date());
 			enterprise2.getDepartmentByName("Informatique").getEmployeeById("475").addCheck(Check2);
 			System.out.println(
 					enterprise2.getDepartmentByName("Informatique").getEmployeeById("475").getListCheck().size());
+			System.out.println(
+					enterprise2.getDepartmentByName("Informatique").getEmployeeById("475").getEndWorkDayTime(DayOfWeek.MONDAY));
 
 		} catch (IOException e) {
 			System.out.println("erreur");

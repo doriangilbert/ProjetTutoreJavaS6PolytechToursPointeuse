@@ -68,7 +68,6 @@ public class Department implements Serializable {
 	private void writeObject(ObjectOutputStream s) throws IOException {
 		s.defaultWriteObject();
 		s.writeUTF(name.getValueSafe());
-		s.writeObject(ListEmployees);
 	}
 
 	private void readObject(ObjectInputStream s) throws IOException, ClassNotFoundException {

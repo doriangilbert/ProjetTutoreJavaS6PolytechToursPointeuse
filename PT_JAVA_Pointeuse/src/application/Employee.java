@@ -5,7 +5,9 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.time.*;
 
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
@@ -15,22 +17,30 @@ public class Employee implements Serializable {
 	private transient StringProperty FirstName;
 	private transient StringProperty LastName;
 	private List<Check> ListCheck;
+	private HashMap<DayOfWeek,LocalTime> StartWork;
+	private HashMap<DayOfWeek,LocalTime> EndWork;
+	
 
 	private void InitProperties() {
 		this.id = new SimpleStringProperty();
 		this.FirstName = new SimpleStringProperty();
 		this.LastName = new SimpleStringProperty();
 		ListCheck = new ArrayList<>();
+		StartWork= new HashMap<>();
+		EndWork= new HashMap<>();
+		for (DayOfWeek DOW : DayOfWeek.values()) {
+			StartWork.put(DOW, LocalTime.of(8, 0));
+			EndWork.put(DOW, LocalTime.of(16, 0));
+		}
+		
 	}
 
 	public Employee() {
-		this.id = new SimpleStringProperty();
-		this.FirstName = new SimpleStringProperty();
-		this.LastName = new SimpleStringProperty();
-		ListCheck = new ArrayList<>();
+		InitProperties();
 	}
 
 	public Employee(String id, String FirstName, String LastName) {
+		InitProperties();
 		this.id = new SimpleStringProperty(id);
 		this.FirstName = new SimpleStringProperty(FirstName);
 		this.LastName = new SimpleStringProperty(LastName);
@@ -52,7 +62,23 @@ public class Employee implements Serializable {
 	public List<Check> getListCheck() {
 		return ListCheck;
 	}
-
+	
+	public LocalTime getStartWorkDayTime(DayOfWeek dow){
+		return StartWork.get(dow);
+	}
+	
+	public void setStartWorkDayTime(DayOfWeek dow,LocalTime lt){
+		StartWork.replace(dow, lt);
+	}
+	
+	public LocalTime getEndWorkDayTime(DayOfWeek dow){
+		return EndWork.get(dow);
+	}
+	
+	public void setEndWorkDayTime(DayOfWeek dow,LocalTime lt){
+		EndWork.replace(dow, lt);
+	}
+	
 	public void setId(String id) {
 		this.id = new SimpleStringProperty(id);
 	}
@@ -82,7 +108,6 @@ public class Employee implements Serializable {
 		s.writeUTF(id.getValueSafe());
 		s.writeUTF(FirstName.getValueSafe());
 		s.writeUTF(LastName.getValueSafe());
-		s.writeObject(ListCheck);
 	}
 
 	private void readObject(ObjectInputStream s) throws IOException, ClassNotFoundException {

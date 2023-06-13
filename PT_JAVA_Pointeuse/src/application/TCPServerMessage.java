@@ -8,7 +8,7 @@ public class TCPServerMessage extends TCPServerBuilder implements Runnable {
 	public void run() {
 		do {
 			String message = this.receive();
-			System.out.println("AppCentrale : Message Received : " + message);
+			System.out.println("CentralApplication : Message Received : " + message);
 		} while (true);
 	}
 

@@ -4,10 +4,10 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
 
-import static application.AppCentrale.Enterprise1;
+import static application.CentralApplication.Enterprise1;
 import static java.lang.Thread.sleep;
 
-public class AppCentraleSerialization implements Runnable {
+public class CentralApplicationSerialization implements Runnable {
 
     @Override
     public void run() {

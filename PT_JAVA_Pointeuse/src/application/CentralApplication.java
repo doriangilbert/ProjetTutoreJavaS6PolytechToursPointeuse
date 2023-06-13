@@ -96,7 +96,7 @@ public class CentralApplication extends Application
 	{
 		while (true)
 		{
-			// ** To write a text inside a file **//
+			//** To write a text inside a file **//
 			FileOutputStream fos = new FileOutputStream(NomFichier);
 			ObjectOutputStream oos = new ObjectOutputStream(fos);
 			oos.writeObject(Enterprise1);

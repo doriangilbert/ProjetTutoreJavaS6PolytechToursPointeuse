@@ -11,7 +11,6 @@ import javafx.scene.control.Label;
  */
 public class ClockEmulatorLive implements Runnable
 {
-	
 	/**
 	 * To find and send the current date, time and the approximation of the time.
 	 * This function refreshes these elements every 10 seconds (making it faster will make the applications have some problems such as slowness)
@@ -60,7 +59,7 @@ public class ClockEmulatorLive implements Runnable
 	 * @return			If minute < 10, return a String with a 0 accompanied by the number of minutes after
 	 * 					Else, return minute
 	 */
-	public String LongMinute(int minute) {
+	public static String LongMinute(int minute) {
 		String longMinute = "";
 		if (minute < 10) {
 			longMinute = "0" + minute;
@@ -77,7 +76,7 @@ public class ClockEmulatorLive implements Runnable
 	 * @param	minute	The current number of minutes (spent during this hour).
 	 * @return			A String with the approximate time in a format HH:MM.
 	 */
-	public String RoundHour(int hour, int minute)
+	public static String RoundHour(int hour, int minute)
 	{
 		String longHour = "";
 		if (minute < 8)

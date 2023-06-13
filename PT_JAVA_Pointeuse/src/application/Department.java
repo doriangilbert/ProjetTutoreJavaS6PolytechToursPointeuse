@@ -10,67 +10,154 @@ import java.util.List;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
-public class Department implements Serializable {
+/**
+ * the Department class containing the list of Employees working on a certain field!
+ */
+public class Department implements Serializable
+{
 	private transient StringProperty name;
 	private List<Employee> ListEmployees;
 
-	private void InitProperties() {
+	/**
+	 * Method to have "default" attributes for a new class.
+	 */
+	private void InitProperties()
+	{
 		this.name = new SimpleStringProperty();
 		ListEmployees = new ArrayList<>();
 	}
 
-	public Department() {
+	/**
+	 * Default constructor, use the previous method to create an object with default attributes.
+	 */
+	public Department()
+	{
 		InitProperties();
 	}
 
-	public Department(String name) {
+	/**
+	 * Comfort builder, create an object Department initialized with a name.
+	 * 
+	 * @param 	name	The name of the future Department.
+	 */
+	public Department(String name)
+	{
 		this.name = new SimpleStringProperty(name);
+		//** We still have an empty list of employees **//
 		ListEmployees = new ArrayList<>();
 	}
 
-	public String getName() {
+	/**
+	 * Getter of the attribute "name".
+	 * 
+	 * @return	The name of the Department.
+	 */
+	public String getName()
+	{
 		return name.get();
 	}
 
-	public void setName(String name) {
+	/**
+	 * Setter of the attribute "name".
+	 * 
+	 * @param	name	The name that will replace the current name of the Department.
+	 */
+	public void setName(String name)
+	{
 		this.name = new SimpleStringProperty(name);
 	}
 
-	public List<Employee> getListEmployees() {
+	/**
+	 * Getter of the attribute "ListEmployees".
+	 * 
+	 * @return	The list of employees in the Department.
+	 */
+	public List<Employee> getListEmployees()
+	{
 		return ListEmployees;
 	}
 
-	public void addEmployee(Employee EmployeeParam) {
-		if (ListEmployees.stream().map(Employee::getId).noneMatch(EmployeeParam.getId()::equals)) {
+	/**
+	 * Adding an employee (if not existing already) inside the enterprise.
+	 * 
+	 * @param	EmployeeParam	The Employee we try to add to the enterprise.
+	 */
+	public void addEmployee(Employee EmployeeParam)
+	{
+		//** If an employee like that doesn't exist **//
+		if (ListEmployees.stream().map(Employee::getId).noneMatch(EmployeeParam.getId()::equals))
+		{
+			//** We add him **//
 			ListEmployees.add(EmployeeParam);
 		}
 	}
 
-	public Employee getEmployeeById(String Id) throws IOException {
-		if (ListEmployees.stream().map(Employee::getId).anyMatch(Id::equals)) {
-			for (int i = 0; i < ListEmployees.size(); i++) {
-				if (ListEmployees.get(i).getId().equals(Id)) {
+	/**
+	 * To find an Employee by his ID only.
+	 * 
+	 * @param	Id	The ID of an employee.
+	 * @return		The object Employee that possess the ID = Id.
+	 * @throws IOException
+	 */
+	public Employee getEmployeeById(String Id) throws IOException
+	{
+		//** We try to know if the employee is here **//
+		if (ListEmployees.stream().map(Employee::getId).anyMatch(Id::equals))
+		{
+			//** If it's a "yes", we want to retrieve him by going through the whole list **//
+			for (int i = 0; i < ListEmployees.size(); i++)
+			{
+				//** We found him **//
+				if (ListEmployees.get(i).getId().equals(Id))
+				{
+					//** We get him **//
 					return ListEmployees.get(i);
 				}
 			}
-		} else {
+		}
+		
+		//** If the employee is nowhere to be found, not in the enterprise (or already fired) **//
+		else
+		{
 			throw new IOException();
 		}
 		return null;
 	}
 
-	public void DeleteEmployee(Employee EmployeeParam) {
-		if (ListEmployees.stream().map(Employee::getId).anyMatch(EmployeeParam.getId()::equals)) {
+	/**
+	 * Remove an object Employee from the list of employees.
+	 * 
+	 * @param	EmployeeParam	The object Employee that we want to "fire" from the enterprise.
+	 */
+	public void DeleteEmployee(Employee EmployeeParam)
+	{
+		//** If the employee is here **//
+		if (ListEmployees.stream().map(Employee::getId).anyMatch(EmployeeParam.getId()::equals))
+		{
+			//** We remove him **//
 			ListEmployees.remove(EmployeeParam);
 		}
 	}
 
-	private void writeObject(ObjectOutputStream s) throws IOException {
+	/**
+	 * 
+	 * @param 	s	
+	 * @throws 	IOException
+	 */
+	private void writeObject(ObjectOutputStream s) throws IOException
+	{
 		s.defaultWriteObject();
 		s.writeUTF(name.getValueSafe());
 	}
 
-	private void readObject(ObjectInputStream s) throws IOException, ClassNotFoundException {
+	/**
+	 * 
+	 * @param s		
+	 * @throws IOException
+	 * @throws ClassNotFoundException
+	 */
+	private void readObject(ObjectInputStream s) throws IOException, ClassNotFoundException
+	{
 		InitProperties();
 		s.defaultReadObject();
 		this.name.set(s.readUTF());

@@ -15,8 +15,6 @@ public class ClockEmulator extends Application
 	public static Stage primaryStage;
 	public static Parent root;
 
-	
-	
 	/**
 	 * Display the screen for the Check in/out emulator,
 	 * and other informations such as the Time, the Date and the Time rounded to the nearest quarter hour.

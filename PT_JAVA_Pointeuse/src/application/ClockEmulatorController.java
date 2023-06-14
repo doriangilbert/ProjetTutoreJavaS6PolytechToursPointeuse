@@ -5,6 +5,8 @@ import java.time.ZoneId;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.TextField;
 
 /**
@@ -40,5 +42,22 @@ public class ClockEmulatorController {
 		System.out.println("ClockEmulator : Message Sent : " + message);
 		new TCPClientMessage().send(message);
 		textFieldCheckInOut.clear();
+	}
+
+	@FXML
+	protected void handleButtonParametersAction(ActionEvent event) {
+		try {
+			// ** We load the FXML file to display the window with the shape of the parameters page **//
+			ClockEmulator.root = FXMLLoader.load(getClass().getResource("AEParametersView.fxml"));
+
+			Scene scene = new Scene(ClockEmulator.root, 640, 400);
+
+			ClockEmulator.primaryStage.setScene(scene);
+			ClockEmulator.primaryStage.show();
+
+			ClockEmulator.isOnMainPage = false;
+		} catch (Exception error) {
+			error.printStackTrace();
+		}
 	}
 }

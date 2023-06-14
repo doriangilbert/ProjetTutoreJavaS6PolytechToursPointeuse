@@ -33,9 +33,11 @@ public class ClockEmulator extends Application
 			root = FXMLLoader.load(getClass().getResource("EmulatorApplicationView.fxml"));
 
 			Scene scene = new Scene(root, 640, 400);
-			ClockEmulator.primaryStage.setTitle("PT_JAVA_Pointeuse : Application Pointeuse");
+			ClockEmulator.primaryStage.setTitle("PT_JAVA_Pointeuse : Application Pointeuse");	       
 			ClockEmulator.primaryStage.setScene(scene);
 			ClockEmulator.primaryStage.show();
+			
+			
 
 			//** To refresh the time/date indicated of the emulator **//
 			new Thread(new ClockEmulatorLive()).start();

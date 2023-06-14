@@ -22,7 +22,6 @@ public class TCPServerBuilder extends TCPMessage
 	{
 		isA = new InetSocketAddress("localhost", 8085);
 		ss = new ServerSocket(isA.getPort());
-		ss.setSoTimeout(100000);
 		/** we can include more setting, later … */
 	}
 }

@@ -78,7 +78,7 @@
             <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
          </rowConstraints>
          <children>
-            <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="82.0" text="Parameters">
+            <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="82.0" text="Parameters" onAction="#handleButtonParametersAction">
                <GridPane.margin>
                   <Insets left="10.0" />
                </GridPane.margin>

@@ -14,6 +14,8 @@ public class ClockEmulator extends Application
 {
 	public static Stage primaryStage;
 	public static Parent root;
+	
+	public static boolean isOnMainPage = true;
 
 	/**
 	 * Display the screen for the Check in/out emulator,

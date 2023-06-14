@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ACParametersController">
+<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.AEParametersController">
   <children>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
          <children>
@@ -16,18 +16,18 @@
                   <Font size="36.0" />
                </font>
             </Label>
-            <Label id="labelEmulatorAppIpAddress" layoutX="32.0" layoutY="144.0" text="Emulator app IP address :">
+            <Label id="labelCentralAppIpAddress" layoutX="52.0" layoutY="144.0" text="Central app IP address :">
                <font>
                   <Font size="24.0" />
                </font>
             </Label>
-            <TextField id="textFieldEmulatorAppIpAddress" layoutX="314.0" layoutY="146.0" prefHeight="31.0" prefWidth="291.0" promptText="Enter the IP address of the emulator app" />
-            <Label id="labelEmulatorAppPort" layoutX="96.0" layoutY="222.0" text="Emulator app port :">
+            <TextField id="textFieldCentralAppIpAddress" layoutX="314.0" layoutY="146.0" prefHeight="31.0" prefWidth="291.0" promptText="Enter the IP address of the central app" />
+            <Label id="labelCentralAppPort" layoutX="115.0" layoutY="222.0" text="Central app port :">
                <font>
                   <Font size="24.0" />
                </font>
             </Label>
-            <TextField id="textFieldEmulatorAppPort" layoutX="314.0" layoutY="224.0" prefHeight="31.0" prefWidth="291.0" promptText="Enter the port for the emulator app" />
+            <TextField id="textFieldCentralAppPort" layoutX="314.0" layoutY="224.0" prefHeight="31.0" prefWidth="291.0" promptText="Enter the port for the central app" />
             <Button id="buttonBackToHome" layoutX="265.0" layoutY="323.0" mnemonicParsing="false" onAction="#handleButtonBackToHome" text="Back to home" />
          </children>
     </AnchorPane>

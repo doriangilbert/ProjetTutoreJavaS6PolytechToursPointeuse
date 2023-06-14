@@ -25,15 +25,16 @@ public class TestClass {
 
 		try {
 			System.out.println(enterprise1.getDepartmentByName("Informatique").getName());
-			System.out.println(enterprise1.getDepartmentByName("Informatique").getEmployeeById("475").getFirstName());
-			Serialization(enterprise1,"Enterprise1.dat");
+			System.out.println(enterprise1.getDepartmentByName("Informatique").getEmployeeById("1").getFirstName());
 			Enterprise enterprise2 = Deserialization("Enterprise1.dat");
 			System.out.println(enterprise2.getDepartmentByName("Informatique").getName());
-			System.out.println(enterprise2.getDepartmentByName("Informatique").getEmployeeById("475").getFirstName());
+			System.out.println(enterprise2.getDepartmentByName("Informatique").getEmployeeById("1").getFirstName());
 			System.out.println(
-					enterprise2.getDepartmentByName("Informatique").getEmployeeById("475").getListCheck().size());
+					enterprise2.getDepartmentByName("Informatique").getEmployeeById("1").getListCheck().size());
 			System.out.println(
-					enterprise2.getDepartmentByName("Informatique").getEmployeeById("475").getEndWorkDayTime(DayOfWeek.MONDAY));
+					enterprise2.getDepartmentByName("Informatique").getEmployeeById("1").getEndWorkDayTime(DayOfWeek.MONDAY));
+			System.out.println(
+					enterprise2.getDepartmentByName("Informatique").getListEmployees().size());
 		} catch (IOException e) {
 			System.out.println("erreur");
 		}

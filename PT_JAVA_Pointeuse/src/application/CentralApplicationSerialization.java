@@ -23,20 +23,22 @@ public class CentralApplicationSerialization implements Runnable
     @Override
     public void run()
     {
-    	try
-    	{
-    		FileOutputStream fos = new FileOutputStream("Enterprise1.dat");
-           	ObjectOutputStream oos = new ObjectOutputStream(fos);
-           	oos.writeObject(CentralApplication.Enterprise1);
-           	System.out.println("Save Finished");
-           	oos.close();
-           	fos.close();
-        }
-        
-    	catch (IOException error)
-    	{
+    	while(true) {
+    		try {
+        		FileOutputStream fos = new FileOutputStream("Enterprise1.dat");
+               	ObjectOutputStream oos = new ObjectOutputStream(fos);
+               	oos.writeObject(CentralApplication.Enterprise1);
+               	System.out.println("Save Finished");
+               	oos.close();
+               	fos.close();
+               	sleep(5000);
+    		}
+    		catch (IOException | InterruptedException e) {
+    			
+    		}
 
-        }
+    	}
+        
     }
     
     /**

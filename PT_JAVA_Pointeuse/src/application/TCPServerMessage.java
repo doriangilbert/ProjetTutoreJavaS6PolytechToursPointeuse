@@ -48,7 +48,6 @@ public class TCPServerMessage extends TCPServerBuilder implements Runnable {
 					System.out.println(CentralApplication.Enterprise1.getDepartmentByName(NameDepartment).getEmployeeById(employeeId).getListCheck().size());
 					CentralApplication.Enterprise1.getDepartmentByName(NameDepartment).getEmployeeById(employeeId).addCheck(new Check(IsACheckIn,false,parsedTimeStamp));
 					System.out.println(CentralApplication.Enterprise1.getDepartmentByName(NameDepartment).getEmployeeById(employeeId).getListCheck().size());
-					new Thread(new CentralApplicationSerialization()).start();
 				}
 				catch (IOException e) {
 					

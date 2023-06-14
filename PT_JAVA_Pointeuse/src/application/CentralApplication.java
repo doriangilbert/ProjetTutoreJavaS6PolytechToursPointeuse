@@ -56,7 +56,7 @@ public class CentralApplication extends Application
 			}
 			
 			//** We create threads to save every possible modifications every 5 seconds **//
-			//new Thread(new CentralApplicationSerialization()).start();
+			new Thread(new CentralApplicationSerialization()).start();
 			//** We also make a thread to read the content of in coming Check (via TCP message) **//
 			new Thread(new TCPServerMessage()).start();
 		}

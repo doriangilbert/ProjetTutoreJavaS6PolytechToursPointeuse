@@ -13,17 +13,20 @@ import java.util.List;
 public class TestClass {
 	public static void main(String[] args) {
 		Check Check1 = new Check(true, false, LocalDateTime.now());
-		Employee Employee1 = new Employee("475", "Mathéo", "Dhondt");
+		Employee Employee1 = new Employee("1", "Mathéo", "Dhondt");
 		Employee1.addCheck(Check1);
 		Department Department1 = new Department("Informatique");
+		Department Department2 = new Department("Mecanique");
 		Department1.addEmployee(Employee1);
 		Enterprise enterprise1 = new Enterprise("PolyEntreprise");
 		enterprise1.addDepartement(Department1);
+		enterprise1.addDepartement(Department2);
 		System.out.println(enterprise1.getName());
 
 		try {
 			System.out.println(enterprise1.getDepartmentByName("Informatique").getName());
 			System.out.println(enterprise1.getDepartmentByName("Informatique").getEmployeeById("475").getFirstName());
+			Serialization(enterprise1,"Enterprise1.dat");
 			Enterprise enterprise2 = Deserialization("Enterprise1.dat");
 			System.out.println(enterprise2.getDepartmentByName("Informatique").getName());
 			System.out.println(enterprise2.getDepartmentByName("Informatique").getEmployeeById("475").getFirstName());

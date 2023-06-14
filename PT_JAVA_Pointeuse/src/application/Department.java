@@ -117,10 +117,6 @@ public class Department implements Serializable
 		}
 		
 		//** If the employee is nowhere to be found, not in the enterprise (or already fired) **//
-		else
-		{
-			throw new IOException();
-		}
 		return null;
 	}
 

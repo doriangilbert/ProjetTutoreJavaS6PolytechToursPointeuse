@@ -24,6 +24,39 @@ public class TCPServerMessage extends TCPServerBuilder implements Runnable {
 					+ ":" + parsedTimeStamp.getMinute());
 			String employeeId = parsedMessage[1];
 			System.out.println("Check employeeId : " + employeeId);
+			Employee EmployeeParam = null;
+			String NameDepartment=null;
+			for( Department Dp : CentralApplication.Enterprise1.getListDepartment()) {
+				try {
+					EmployeeParam=Dp.getEmployeeById(employeeId);
+					if (EmployeeParam !=null) {
+						NameDepartment=Dp.getName();
+					}
+				}
+				catch (IOException e) {
+					
+				}
+			}
+			if (EmployeeParam!=null) {
+				Boolean IsACheckIn=true;
+				for (Check Ck: EmployeeParam.getListCheck()) {
+					if (Ck.getDate().toLocalDate().equals(parsedTimeStamp.toLocalDate())){
+						IsACheckIn=false;
+					}
+				}
+				try {
+					System.out.println(CentralApplication.Enterprise1.getDepartmentByName(NameDepartment).getEmployeeById(employeeId).getListCheck().size());
+					CentralApplication.Enterprise1.getDepartmentByName(NameDepartment).getEmployeeById(employeeId).addCheck(new Check(IsACheckIn,false,parsedTimeStamp));
+					System.out.println(CentralApplication.Enterprise1.getDepartmentByName(NameDepartment).getEmployeeById(employeeId).getListCheck().size());
+					new Thread(new CentralApplicationSerialization()).start();
+				}
+				catch (IOException e) {
+					
+				}
+			}
+			else {
+				System.out.println("Id doesn't correspond to an existing employee");
+			}
 		} while (true);
 	}
 

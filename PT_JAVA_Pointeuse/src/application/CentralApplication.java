@@ -25,7 +25,7 @@ public class CentralApplication extends Application
 	public static Stage primaryStage;
 	public static Parent root;
 
-	public static Enterprise Enterprise1;
+	public static Enterprise Enterprise1=new Enterprise();
 	
 	/**
 	 * Display the screen for the Central application,
@@ -51,19 +51,18 @@ public class CentralApplication extends Application
 			CentralApplication.primaryStage.show();
 
 			//** The file for the serialization **//
-			File Fichier = new File("Entreprise1.dat");
-			Enterprise1 = new Enterprise();
+			File Fichier = new File("Enterprise1.dat");
 			
 			//** We verify if the file exists **//
 			if (Fichier.exists())
 			{
 				//** And we display all the informations from this file **//
-				Enterprise1 = Deserialization("Entreprise1.dat");
+				CentralApplication.Enterprise1 = Deserialization("Enterprise1.dat");
 				System.out.println(Enterprise1.getName());
 			}
 			
 			//** We create threads to save every possible modifications every 5 seconds **//
-			new Thread(new CentralApplicationSerialization()).start();
+			//new Thread(new CentralApplicationSerialization()).start();
 			//** We also make a thread to read the content of in coming Check (via TCP message) **//
 			new Thread(new TCPServerMessage()).start();
 		}

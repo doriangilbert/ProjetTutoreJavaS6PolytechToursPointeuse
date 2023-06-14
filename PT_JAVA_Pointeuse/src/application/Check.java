@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 import javafx.beans.property.BooleanProperty;
@@ -16,7 +17,7 @@ import javafx.beans.property.SimpleObjectProperty;
 public class Check implements Serializable {
 	public transient BooleanProperty IsACheckIn;
 	public transient BooleanProperty IsAnError;
-	public transient ObjectProperty<Date> date;
+	public transient ObjectProperty<LocalDateTime> date;
 	
 	private void InitProperties() {
 		this.IsACheckIn = new SimpleBooleanProperty();
@@ -28,7 +29,7 @@ public class Check implements Serializable {
 		InitProperties();
 	}
 
-	public Check(boolean IsACheckIn, boolean IsAnError, Date date) {
+	public Check(boolean IsACheckIn, boolean IsAnError, LocalDateTime date) {
 		InitProperties();
 		this.IsACheckIn = new SimpleBooleanProperty(IsACheckIn);
 		this.IsAnError = new SimpleBooleanProperty(IsAnError);
@@ -43,7 +44,7 @@ public class Check implements Serializable {
 		return IsAnError.get();
 	}
 
-	public Date getDate() {
+	public LocalDateTime getDate() {
 		return date.get();
 	}
 
@@ -68,7 +69,7 @@ public class Check implements Serializable {
 		s.defaultReadObject();
 		IsACheckIn.set(s.readBoolean());
 		IsAnError.set(s.readBoolean());
-		date.set((Date) s.readObject());
+		date.set((LocalDateTime) s.readObject());
 		// set values in the same order as writeObject()
 	}
 }

@@ -109,10 +109,7 @@ public class Employee implements Serializable
 
 	public void addCheck(Check CheckParam)
 	{
-		if (ListCheck.stream().map(Check::getDate).noneMatch(CheckParam.getDate()::equals))
-		{
-			ListCheck.add(CheckParam);
-		}
+		ListCheck.add(CheckParam);
 	}
 
 	public void deleteCheck(Check CheckParam)

@@ -2,6 +2,9 @@ package application;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.time.Instant;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
 
 public class TCPServerMessage extends TCPServerBuilder implements Runnable {
 
@@ -9,6 +12,18 @@ public class TCPServerMessage extends TCPServerBuilder implements Runnable {
 		do {
 			String message = this.receive();
 			System.out.println("CentralApplication : Message Received : " + message);
+			String[] parsedMessage = message.split(",");
+			long timeStamp = Long.parseLong(parsedMessage[0]);
+			System.out.println("timeStamp : " + timeStamp);
+			LocalDateTime parsedTimeStamp = LocalDateTime.ofEpochSecond(timeStamp, 0,
+					ZoneId.systemDefault().getRules().getOffset(Instant.now()));
+			System.out.println("Check Time : ");
+			System.out.println(parsedTimeStamp);
+			System.out.println(parsedTimeStamp.getDayOfWeek() + " " + parsedTimeStamp.getDayOfMonth() + " "
+					+ parsedTimeStamp.getMonth() + " " + parsedTimeStamp.getYear() + " " + parsedTimeStamp.getHour()
+					+ ":" + parsedTimeStamp.getMinute());
+			String employeeId = parsedMessage[1];
+			System.out.println("Check employeeId : " + employeeId);
 		} while (true);
 	}
 

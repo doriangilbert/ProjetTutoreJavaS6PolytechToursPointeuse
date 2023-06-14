@@ -36,8 +36,6 @@ public class ClockEmulator extends Application
 			ClockEmulator.primaryStage.setTitle("PT_JAVA_Pointeuse : Application Pointeuse");	       
 			ClockEmulator.primaryStage.setScene(scene);
 			ClockEmulator.primaryStage.show();
-			
-			
 
 			//** To refresh the time/date indicated of the emulator **//
 			new Thread(new ClockEmulatorLive()).start();

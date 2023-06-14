@@ -1,13 +1,6 @@
 package application;
 
-import static java.lang.Thread.sleep;
-
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -57,7 +50,7 @@ public class CentralApplication extends Application
 			if (Fichier.exists())
 			{
 				//** And we display all the informations from this file **//
-				CentralApplication.Enterprise1 = Deserialization("Enterprise1.dat");
+				CentralApplication.Enterprise1 = CentralApplicationSerialization.Deserialization("Enterprise1.dat");
 				System.out.println(Enterprise1.getName());
 			}
 			
@@ -82,52 +75,5 @@ public class CentralApplication extends Application
 	public static void main(String[] args)
 	{
 		launch(args);
-	}
-
-	/**
-	 * Write all information of an enterprise (on the application) in a file
-	 * 
-	 * @param 	NomFichier	The directory of the file to put all the information into.
-	 * @throws 	IOException
-	 * @throws 	InterruptedException
-	 */
-	public static void Serialization(String NomFichier) throws IOException, InterruptedException
-	{
-		while (true)
-		{
-			//** To write a text inside a file **//
-			FileOutputStream fos = new FileOutputStream(NomFichier);
-			ObjectOutputStream oos = new ObjectOutputStream(fos);
-			oos.writeObject(Enterprise1);
-			oos.close();
-			//** We do that every 5 seconds (to save any possible modifications) **//
-			sleep(5000);
-		}
-	}
-
-	/**
-	 * Take out all information of an enterprise from a file
-	 * 
-	 * @param	NomFichier	The directory of the file to take all the information from.
-	 * @return				The information of a certain enterprise stocked in the file.
-	 * @throws	IOException	
-	 */
-	public static Enterprise Deserialization(String NomFichier) throws IOException
-	{
-		//** To read the text in a file **//
-		FileInputStream fis = new FileInputStream(NomFichier);
-		ObjectInputStream ois = new ObjectInputStream(fis);
-		Enterprise enterpriseParam = new Enterprise();
-		try
-		{
-			enterpriseParam = (Enterprise) ois.readObject();
-		}
-		
-		catch (ClassNotFoundException error)
-		{
-
-		}
-		ois.close();
-		return enterpriseParam;
 	}
 }

@@ -7,6 +7,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -30,6 +31,9 @@ public class ACStaffManagementController {
 	
 	@FXML
 	private ComboBox<String> mainIdBox;
+	
+	@FXML
+	private Label ACCreateEmployeeLabelId;
 	
 	/**
 	 * To display informations of all the employees such as their ID, names and department.
@@ -105,13 +109,16 @@ public class ACStaffManagementController {
 	{
 		try
 		{
-			//** We load the FXML file to display the window with the shape of the employee's creation page **//
-			CentralApplication.root = FXMLLoader.load(getClass().getResource("ACCreateEmployeeView.fxml"));
+			//** We load the FXML file to display the window with the shape of the employee's manage page **//
+			CentralApplication.root = FXMLLoader.load(getClass().getResource("ACManageEmployeeView.fxml"));
 
 			Scene scene = new Scene(CentralApplication.root, 640, 400);
 
 			CentralApplication.primaryStage.setScene(scene);
 			CentralApplication.primaryStage.show();
+			
+			ACCreateEmployeeLabelId = (Label) CentralApplication.root.lookup("#labelId");
+			ACCreateEmployeeLabelId.setText(mainIdBox.getValue());
 		}
 
 		catch (Exception error)

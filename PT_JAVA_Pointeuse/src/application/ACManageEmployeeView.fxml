@@ -22,7 +22,7 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label id="labelId" layoutX="295.0" layoutY="72.0" text="XXX">
+            <Label fx:id="labelId" layoutX="295.0" layoutY="72.0" text="XXX">
                <font>
                   <Font size="18.0" />
                </font>
@@ -32,19 +32,19 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <TextField id="textFieldFirstName" layoutX="295.0" layoutY="123.0" prefHeight="31.0" prefWidth="267.0" />
+            <TextField fx:id="textFieldFirstName" layoutX="295.0" layoutY="123.0" prefHeight="31.0" prefWidth="267.0" />
             <Label id="labelLastName" layoutX="187.0" layoutY="187.0" text="Last name :">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <TextField id="textFieldLastName" layoutX="295.0" layoutY="185.0" prefHeight="31.0" prefWidth="267.0" />
+            <TextField fx:id="textFieldLastName" layoutX="295.0" layoutY="185.0" prefHeight="31.0" prefWidth="267.0" />
             <Label id="labelDepartment" layoutX="170.0" layoutY="246.0" text="Department :">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <ComboBox id="comboBoxDepartment" layoutX="295.0" layoutY="244.0" prefHeight="31.0" prefWidth="267.0" />
+            <ComboBox fx:id="comboBoxDepartment" layoutX="295.0" layoutY="244.0" prefHeight="31.0" prefWidth="267.0" />
             <Button id="buttonConfirm" layoutX="283.0" layoutY="303.0" mnemonicParsing="false" onAction="#handleButtonConfirm" text="Confirm" />
             <Button id="buttonBack" layoutX="295.0" layoutY="355.0" mnemonicParsing="false" onAction="#handleButtonBack" text="Back" />
          </children>

@@ -4,12 +4,51 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 
 /**
  * Class for the Employees' modification page display!
  */
 public class ACManageEmployeeController
 {
+	
+	@FXML
+	private Label labelId;
+	
+	String employeeId;
+	
+	@FXML
+	private TextField textFieldFirstName;
+	
+	@FXML
+	private TextField textFieldLastName;
+	
+	@FXML
+	private ComboBox<String> comboBoxDepartment;
+	
+	@FXML
+	private void initialize()
+	{
+		labelId.textProperty().addListener((observable, oldValue, newValue) -> {
+		    //System.out.println("label changed from " + oldValue + " to " + newValue);
+			employeeId = newValue;
+			textFieldLastName.setText(employeeId);
+			for (Department department : CentralApplication.Enterprise1.getListDepartment())
+			{
+				for (Employee employee : department.getListEmployees())
+				{
+					if (employee.getId().equals(employeeId)) {
+						textFieldFirstName.setText(employee.getFirstName());
+						textFieldLastName.setText(employee.getLastName());
+						comboBoxDepartment.setValue(department.getName());
+					}
+					
+				}
+			}
+		});
+	}
 	
 	/**
 	 * Define the function of a button to confirm the modification of an employee.

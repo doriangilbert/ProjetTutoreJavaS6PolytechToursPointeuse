@@ -40,10 +40,8 @@ PT_JAVA_Pointeuse
 │   build.fxbuild
 │   Enterprise1.dat
 │
-│
 ├───doc
 │   └─── ...
-│   
 │
 ├───lib
 │   └───javafx-sdk-12

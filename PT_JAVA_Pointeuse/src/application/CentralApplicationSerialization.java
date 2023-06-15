@@ -78,6 +78,16 @@ public class CentralApplicationSerialization implements Runnable
 		try
 		{
 			enterpriseParam = (Enterprise) ois.readObject();
+			int IDmax=0;
+			for (Department dp : enterpriseParam.getListDepartment()) {
+				for (Employee Emp : dp.getListEmployees()) {
+					if (IDmax<Integer.parseInt(Emp.getId())) {
+						IDmax=Integer.parseInt(Emp.getId());
+					}
+				}
+			}
+			IDmax++;
+			Employee.IdCounter=IDmax;
 		}
 		
 		catch (ClassNotFoundException error)

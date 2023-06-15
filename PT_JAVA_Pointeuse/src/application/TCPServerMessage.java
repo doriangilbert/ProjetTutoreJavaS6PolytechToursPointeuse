@@ -27,14 +27,11 @@ public class TCPServerMessage extends TCPServerBuilder implements Runnable {
 			Employee EmployeeParam = null;
 			String NameDepartment=null;
 			for( Department Dp : CentralApplication.Enterprise1.getListDepartment()) {
-				try {
-					EmployeeParam=Dp.getEmployeeById(employeeId);
-					if (EmployeeParam !=null) {
+				for (Employee Em : Dp.getListEmployees()) {
+					if (Em.getId().equals(employeeId)) {
+						EmployeeParam=Em;
 						NameDepartment=Dp.getName();
 					}
-				}
-				catch (IOException e) {
-					
 				}
 			}
 			if (EmployeeParam!=null) {
@@ -46,7 +43,7 @@ public class TCPServerMessage extends TCPServerBuilder implements Runnable {
 				}
 				try {
 					System.out.println(CentralApplication.Enterprise1.getDepartmentByName(NameDepartment).getEmployeeById(employeeId).getListCheck().size());
-					CentralApplication.Enterprise1.getDepartmentByName(NameDepartment).getEmployeeById(employeeId).addCheck(new Check(IsACheckIn,false,parsedTimeStamp));
+					EmployeeParam.addCheck(new Check(IsACheckIn,false,parsedTimeStamp));
 					System.out.println(CentralApplication.Enterprise1.getDepartmentByName(NameDepartment).getEmployeeById(employeeId).getListCheck().size());
 				}
 				catch (IOException e) {

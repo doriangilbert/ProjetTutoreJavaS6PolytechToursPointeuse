@@ -10,11 +10,12 @@ import javafx.scene.control.Label;
  * the current time, date and the approximate time (to the nearest quarter
  * hour).
  */
-public class ClockEmulatorLive implements Runnable {
+public class ClockEmulatorLive implements Runnable
+{
+	
 	/**
 	 * To find and send the current date, time and the approximation of the time.
-	 * This function refreshes these elements every 10 seconds (making it faster
-	 * will make the applications have some problems such as slowness)
+	 * This function refreshes these elements every 1 second.
 	 */
 	public void run() {
 		do {
@@ -37,7 +38,7 @@ public class ClockEmulatorLive implements Runnable {
 
 			}
 			try {
-				// ** Sleep for 1 seconds **/
+				// ** Sleep for 1 second **/
 				Thread.sleep(1000);
 			}
 

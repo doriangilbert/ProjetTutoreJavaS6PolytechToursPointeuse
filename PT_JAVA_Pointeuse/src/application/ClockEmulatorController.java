@@ -10,9 +10,10 @@ import javafx.scene.Scene;
 import javafx.scene.control.TextField;
 
 /**
- * Controller of the ClockEmulator class! Calculates some elements that will be
- * displayed on a window. Here, we only need it to send messages between the
- * Emulator and the Central Application.
+ * Controller of the ClockEmulator class!
+ * Calculates some elements that will be displayed on a window.
+ * Here, we need it to send messages between the Emulator and the Central Application.
+ * Also, to modify the parameters for the TCP connection.
  */
 public class ClockEmulatorController {
 	@FXML
@@ -29,7 +30,8 @@ public class ClockEmulatorController {
 	 *              click" on a button that activates this function.
 	 */
 	@FXML
-	protected void handleButtonCheckInOutAction(ActionEvent event) {
+	protected void handleButtonCheckInOutAction(ActionEvent event)
+	{
 		textFieldCheckInOut = (TextField) ClockEmulator.root.lookup("#textFieldCheckInOut");
 		String employeeId = textFieldCheckInOut.getText();
 		String roundTime = ClockEmulatorLive.RoundHour(LocalDateTime.now().getHour(), LocalDateTime.now().getMinute());
@@ -44,6 +46,11 @@ public class ClockEmulatorController {
 		textFieldCheckInOut.clear();
 	}
 
+	/**
+	 * Define the function of a button to go to the parameters page.
+	 * 
+	 * @param	event	the type of event (a left mouse click on a button).
+	 */
 	@FXML
 	protected void handleButtonParametersAction(ActionEvent event) {
 		try {

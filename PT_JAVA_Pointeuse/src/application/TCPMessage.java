@@ -5,9 +5,14 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.Random;
 
+/**
+ * 
+ */
 public class TCPMessage extends TCPBuffer
 {
-	/** The (simple) text write method. */
+	/**
+	 * The (simple) text write method.
+	 */
 	void writeMessage(OutputStream out, String msOut) throws IOException
 	{
 		if ((out != null) & (msOut != null))
@@ -19,7 +24,9 @@ public class TCPMessage extends TCPBuffer
 		}
 	}
 
-	/** The (simple) text read method. */
+	/**
+	 * The (simple) text read method.
+	 */
 	String readMessage(InputStream in) throws IOException
 	{
 		if (in != null)
@@ -34,6 +41,12 @@ public class TCPMessage extends TCPBuffer
 		return null;
 	}
 
+	/**
+	 * 
+	 * @param out
+	 * @param loop
+	 * @throws IOException
+	 */
 	void loopWriteMessage(OutputStream out, int loop) throws IOException
 	{
 		for (int i = 0; i < loop; i++)
@@ -44,6 +57,10 @@ public class TCPMessage extends TCPBuffer
 		}
 	}
 
+	/**
+	 * 
+	 * @param buffer
+	 */
 	private void fillAtRandom(byte[] buffer)
 	{
 		for (int i = 0; i < buffer.length; i++)

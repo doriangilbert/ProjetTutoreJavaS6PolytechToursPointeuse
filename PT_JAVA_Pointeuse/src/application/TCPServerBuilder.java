@@ -5,12 +5,18 @@ import java.net.InetSocketAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
 
+/**
+ * 
+ */
 public class TCPServerBuilder extends TCPMessage
 {
 	ServerSocket ss;
 	Socket s;
 	InetSocketAddress isA;
 
+	/**
+	 * 
+	 */
 	TCPServerBuilder()
 	{
 		ss = null;
@@ -18,6 +24,10 @@ public class TCPServerBuilder extends TCPMessage
 		isA = null;
 	}
 
+	/**
+	 * 
+	 * @throws IOException
+	 */
 	protected void setSocket() throws IOException
 	{
 		isA = new InetSocketAddress("localhost", 8085);

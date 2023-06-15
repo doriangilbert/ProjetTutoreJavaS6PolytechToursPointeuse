@@ -5,11 +5,13 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 
+/**
+ * Class for the check in/out history page display!
+ */
 public class ACTodayCheckInOutHistoryController
 {
-	
 	/**
-	 * Define a button to go to the Main page.
+	 * Define the function of a button to go to the check in/out history page.
 	 * 
 	 * @param	event	the type of event (a left mouse click on a button).
 	 */
@@ -18,7 +20,7 @@ public class ACTodayCheckInOutHistoryController
 	{
 		try
 		{
-			
+			//** We load the FXML file to display the window with the shape of the check in/out history page **//
 			CentralApplication.root = FXMLLoader.load(getClass().getResource("ACCheckInOutHistoryView.fxml"));
 
 			Scene scene = new Scene(CentralApplication.root, 640, 400);

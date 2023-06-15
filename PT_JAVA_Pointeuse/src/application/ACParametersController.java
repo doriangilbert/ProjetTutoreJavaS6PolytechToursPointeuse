@@ -12,7 +12,7 @@ public class ACParametersController
 {
 
 	/**
-	 * Define a button to go to the Main page.
+	 * Define the function of a button to go to the Main page.
 	 * 
 	 * @param	event	the type of event (a left mouse click on a button).
 	 */

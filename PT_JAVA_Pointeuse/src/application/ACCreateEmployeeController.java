@@ -108,4 +108,24 @@ public class ACCreateEmployeeController
 			error.printStackTrace();
 		}
 	}
+	
+	@FXML
+	protected void handleButtonCreateDepartment(ActionEvent event)
+	{
+		try
+		{
+			//** We load the FXML file to display the window with the shape of the create department page **//
+			CentralApplication.root = FXMLLoader.load(getClass().getResource("ACCreateDepartmentView.fxml"));
+
+			Scene scene = new Scene(CentralApplication.root, 640, 400);
+
+			CentralApplication.primaryStage.setScene(scene);
+			CentralApplication.primaryStage.show();
+		}
+		
+		catch (Exception error)
+		{
+			error.printStackTrace();
+		}
+	}
 }

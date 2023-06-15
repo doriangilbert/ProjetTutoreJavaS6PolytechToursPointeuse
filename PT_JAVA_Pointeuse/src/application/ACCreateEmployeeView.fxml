@@ -37,6 +37,7 @@
             <ComboBox id="comboBoxDepartment" fx:id="mainDepartmentBox" layoutX="256.0" layoutY="223.0" prefHeight="31.0" prefWidth="267.0" />
             <Button id="buttonConfirm" layoutX="283.0" layoutY="303.0" mnemonicParsing="false" onAction="#handleButtonConfirm" text="Confirm" />
             <Button id="buttonBack" layoutX="295.0" layoutY="355.0" mnemonicParsing="false" onAction="#handleButtonBack" text="Back" />
+            <Button id="buttonCreateNewDepartment" layoutX="429.0" layoutY="340.0" mnemonicParsing="false" onAction="#handleButtonCreateDepartment" text="Create a new department" />
          </children>
     </AnchorPane>
   </children>

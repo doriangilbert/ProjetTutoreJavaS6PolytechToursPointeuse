@@ -18,7 +18,6 @@ public class CentralApplication extends Application
 	public static Stage primaryStage;
 	public static Parent root;
 
-	public static int IdCounter=1;
 	public static Enterprise Enterprise1=new Enterprise();
 	
 	/**

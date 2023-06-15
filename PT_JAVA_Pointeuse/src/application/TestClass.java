@@ -22,7 +22,7 @@ public class TestClass
 	public static void main(String[] args)
 	{
 		Check Check1 = new Check(true, false, LocalDateTime.now());
-		Employee Employee1 = new Employee("1", "Mathéo", "Dhondt");
+		Employee Employee1 = new Employee("Mathéo", "Dhondt");
 		Employee1.addCheck(Check1);
 		Department Department1 = new Department("Informatique");
 		Department Department2 = new Department("Mecanique");
@@ -35,6 +35,7 @@ public class TestClass
 		try {
 			System.out.println(enterprise1.getDepartmentByName("Informatique").getName());
 			System.out.println(enterprise1.getDepartmentByName("Informatique").getEmployeeById("1").getFirstName());
+			Serialization(enterprise1,"Enterprise1.dat");
 			Enterprise enterprise2 = Deserialization("Enterprise1.dat");
 			System.out.println(enterprise2.getDepartmentByName("Informatique").getName());
 			System.out.println(enterprise2.getDepartmentByName("Informatique").getEmployeeById("1").getFirstName());

@@ -58,16 +58,13 @@ public class ACCreateEmployeeController
 			try
 			{
 				//** We try to add the new employee **//
-				CentralApplication.IdCounter++;
-				String Id=String.valueOf(CentralApplication.IdCounter);
-				CentralApplication.Enterprise1.getDepartmentByName(mainDepartmentBox.getValue()).addEmployee(new Employee(Id,TextFirstName.getText(),TextLastName.getText()));
+				CentralApplication.Enterprise1.getDepartmentByName(mainDepartmentBox.getValue()).addEmployee(new Employee(TextFirstName.getText(),TextLastName.getText()));
 				System.out.println(CentralApplication.Enterprise1.getDepartmentByName(mainDepartmentBox.getValue()).getListEmployees().size());
 			}
 			catch (IOException error)
 			{
 				//** If the employee already exists, we do nothing **//
-				System.out.println("The employee already exists");
-				CentralApplication.IdCounter--;	
+				System.out.println("The employee already exists");	
 			}
 		}
 		

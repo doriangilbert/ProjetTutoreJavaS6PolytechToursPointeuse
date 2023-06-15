@@ -21,12 +21,20 @@ public class TestClass
 	 */
 	public static void main(String[] args)
 	{
-		Check Check1 = new Check(true, false, LocalDateTime.now());
+		//Check Check1 = new Check(true, false, LocalDateTime.now());
 		Employee Employee1 = new Employee("Mathéo", "Dhondt");
-		Employee1.addCheck(Check1);
+		Employee Employee2 = new Employee("Dorian", "Gilbert");
+		//Employee1.addCheck(Check1);
+		Employee1.addCheck(new Check(true, false, LocalDateTime.of(2023,6,13,8,55)));
+		Employee1.addCheck(new Check(false, false, LocalDateTime.of(2023,6,13,17,05)));
+		Employee2.addCheck(new Check(true, false, LocalDateTime.of(2023,6,15,7,55)));
+		Employee2.addCheck(new Check(false, false, LocalDateTime.of(2023,6,15,16,05)));
+		Employee1.addCheck(new Check(true, false, LocalDateTime.of(2023,6,15,9,55)));
+		//Employee1.addCheck(new Check(false, false, LocalDateTime.of(2023,6,15,18,05)));
 		Department Department1 = new Department("Informatique");
 		Department Department2 = new Department("Mecanique");
 		Department1.addEmployee(Employee1);
+		Department2.addEmployee(Employee2);
 		Enterprise enterprise1 = new Enterprise("PolyEntreprise");
 		enterprise1.addDepartement(Department1);
 		enterprise1.addDepartement(Department2);

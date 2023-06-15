@@ -66,12 +66,26 @@ public class ACCreateEmployeeController
 			catch (IOException error)
 			{
 				//** If the employee already exists, we do nothing **//
-				System.out.println("L'employée existe déjà");
+				System.out.println("The employee already exists");
 				CentralApplication.IdCounter--;	
 			}
 		}
 		
-		System.out.println("Confirm button pressed");
+		try
+		{
+			//** We load the FXML file to display the window with the shape of the staff management page **//
+			CentralApplication.root = FXMLLoader.load(getClass().getResource("ACStaffManagementView.fxml"));
+
+			Scene scene = new Scene(CentralApplication.root, 640, 400);
+
+			CentralApplication.primaryStage.setScene(scene);
+			CentralApplication.primaryStage.show();
+		}
+		
+		catch (Exception error)
+		{
+			error.printStackTrace();
+		}
 	}
 	
 	/**

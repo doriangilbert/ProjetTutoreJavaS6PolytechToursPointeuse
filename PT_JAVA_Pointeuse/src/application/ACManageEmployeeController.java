@@ -1,5 +1,7 @@
 package application;
 
+import java.io.IOException;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -60,8 +62,32 @@ public class ACManageEmployeeController
 	@FXML
 	protected void handleButtonConfirm(ActionEvent event)
 	{
+		//** If we have filled all the text boxes **//
+		if (!textFieldFirstName.getText().isBlank() && !textFieldLastName.getText().isBlank())
+		{
+			try
+			{
+				for (Department department : CentralApplication.Enterprise1.getListDepartment())
+				{
+					if (department.getEmployeeById(employeeId) != null)
+					{
+						//** We try to modify information about the employee **//
+						department.getEmployeeById(employeeId).setFirstName(textFieldFirstName.getText());
+						department.getEmployeeById(employeeId).setLastName(textFieldLastName.getText());
+						System.out.println(employeeId);
+						//CentralApplication.Enterprise1.getDepartmentByName(mainDepartmentBox.getValue()).addEmployee(new Employee(TextFirstName.getText(),TextLastName.getText()));
+						//System.out.println(CentralApplication.Enterprise1.getDepartmentByName(mainDepartmentBox.getValue()).getListEmployees().size());
+					}
+				}
+			}
+				
+			catch (IOException error)
+			{
+				//** If the employee already exists, we do nothing **//
+				System.out.println("The employee already exists");	
+			}
+		}
 		
-		System.out.println(employeeId);
 		try
 		{
 			//** We load the FXML file to display the window with the shape of the staff management page **//

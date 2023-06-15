@@ -21,13 +21,13 @@
                   <Font size="24.0" />
                </font>
             </Label>
-            <TextField id="textFieldEmulatorAppIpAddress" layoutX="314.0" layoutY="146.0" prefHeight="31.0" prefWidth="291.0" promptText="Enter the IP address of the emulator app" />
+            <TextField fx:id="textFieldEmulatorAppIpAddress" layoutX="314.0" layoutY="146.0" prefHeight="31.0" prefWidth="291.0" promptText="Enter the IP address of the emulator app" />
             <Label id="labelEmulatorAppPort" layoutX="96.0" layoutY="222.0" text="Emulator app port :">
                <font>
                   <Font size="24.0" />
                </font>
             </Label>
-            <TextField id="textFieldEmulatorAppPort" layoutX="314.0" layoutY="224.0" prefHeight="31.0" prefWidth="291.0" promptText="Enter the port for the emulator app" />
+            <TextField fx:id="textFieldEmulatorAppPort" layoutX="314.0" layoutY="224.0" prefHeight="31.0" prefWidth="291.0" promptText="Enter the port for the emulator app" />
             <Button id="buttonBackToHome" layoutX="265.0" layoutY="323.0" mnemonicParsing="false" onAction="#handleButtonBackToHome" text="Back to home" />
          </children>
     </AnchorPane>

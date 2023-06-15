@@ -4,11 +4,27 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.TextField;
 
 /**
  * Class for the connection's parameters page display!
  */
 public class AEParametersController {
+	
+	@FXML
+	private TextField textFieldCentralAppIpAddress;
+	
+	@FXML
+	private TextField textFieldCentralAppPort;
+	
+	@FXML
+	private void initialize()
+	{
+		textFieldCentralAppIpAddress.setText(TCPClientBuilder.address);
+		textFieldCentralAppIpAddress.setEditable(false);
+		textFieldCentralAppPort.setText(Integer.toString(TCPClientBuilder.port));
+		textFieldCentralAppPort.setEditable(false);
+	}
 	
 	/**
 	 * Define the function of a button to go to the Main page.

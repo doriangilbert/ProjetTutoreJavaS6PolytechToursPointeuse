@@ -21,13 +21,13 @@
                   <Font size="24.0" />
                </font>
             </Label>
-            <TextField id="textFieldCentralAppIpAddress" layoutX="314.0" layoutY="146.0" prefHeight="31.0" prefWidth="291.0" promptText="Enter the IP address of the central app" />
+            <TextField fx:id="textFieldCentralAppIpAddress" layoutX="314.0" layoutY="146.0" prefHeight="31.0" prefWidth="291.0" promptText="Enter the IP address of the central app" />
             <Label id="labelCentralAppPort" layoutX="115.0" layoutY="222.0" text="Central app port :">
                <font>
                   <Font size="24.0" />
                </font>
             </Label>
-            <TextField id="textFieldCentralAppPort" layoutX="314.0" layoutY="224.0" prefHeight="31.0" prefWidth="291.0" promptText="Enter the port for the central app" />
+            <TextField fx:id="textFieldCentralAppPort" layoutX="314.0" layoutY="224.0" prefHeight="31.0" prefWidth="291.0" promptText="Enter the port for the central app" />
             <Button id="buttonBackToHome" layoutX="265.0" layoutY="323.0" mnemonicParsing="false" onAction="#handleButtonBackToHome" text="Back to home" />
          </children>
     </AnchorPane>

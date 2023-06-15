@@ -10,7 +10,7 @@
 	<children>
 		<AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
 			<children>
-				<Label id="labelApplicationCentrale" layoutX="213.0" layoutY="63.0" text="Application Centrale">
+				<Label id="labelCentralApplication" layoutX="213.0" layoutY="63.0" text="Central Application">
 					<font>
 						<Font size="24.0" />
 					</font>

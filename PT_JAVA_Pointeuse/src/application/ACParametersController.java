@@ -4,13 +4,28 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.TextField;
 
 /**
  * Class for the Parameters page display!
  */
-public class ACParametersController
-{
+public class ACParametersController {
 
+	@FXML
+	private TextField textFieldEmulatorAppIpAddress;
+	
+	@FXML
+	private TextField textFieldEmulatorAppPort;
+	
+	@FXML
+	private void initialize()
+	{
+		textFieldEmulatorAppIpAddress.setText(TCPServerBuilder.address);
+		textFieldEmulatorAppIpAddress.setEditable(false);
+		textFieldEmulatorAppPort.setText(Integer.toString(TCPServerBuilder.port));
+		textFieldEmulatorAppPort.setEditable(false);
+	}
+	
 	/**
 	 * Define the function of a button to go to the Main page.
 	 * 

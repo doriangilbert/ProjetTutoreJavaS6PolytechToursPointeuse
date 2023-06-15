@@ -11,6 +11,9 @@ public class TCPClientBuilder extends TCPMessage
 {
 	Socket s;
 	InetSocketAddress isA;
+	
+	public static String address = "localhost";
+	public static int port = 8085;
 
 	/**
 	 * Default constructor, define the attributes with default values.
@@ -23,16 +26,13 @@ public class TCPClientBuilder extends TCPMessage
 
 	/**
 	 * Create a socket that will transport the message (the check) to the CentralApplication.
-	 * The socket will destroy itself 100 seconds after being created.
 	 * 
 	 * @throws IOException
 	 */
 	protected void setSocket() throws IOException
 	{
-		isA = new InetSocketAddress("localhost", 8085);
+		isA = new InetSocketAddress(address, port);
 		s = new Socket(isA.getHostName(), isA.getPort());
-		//** Time set from its creation to its own destruction (its lifetime) **//
-		s.setSoTimeout(100000);
 		/** we can include more setting, later … */
 	}
 }

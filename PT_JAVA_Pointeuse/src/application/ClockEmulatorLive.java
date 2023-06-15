@@ -17,9 +17,12 @@ public class ClockEmulatorLive implements Runnable
 	 * To find and send the current date, time and the approximation of the time.
 	 * This function refreshes these elements every 1 second.
 	 */
-	public void run() {
-		do {
-			if (ClockEmulator.isOnMainPage) {
+	public void run()
+	{
+		do
+		{
+			if (ClockEmulator.isOnMainPage)
+			{
 				// ** To have the current date **//
 				Label labelDate = (Label) ClockEmulator.root.lookup("#labelDate");
 				Platform.runLater(() -> labelDate
@@ -37,13 +40,16 @@ public class ClockEmulatorLive implements Runnable
 						.setText(RoundHour(LocalDateTime.now().getHour(), LocalDateTime.now().getMinute())));
 
 			}
-			try {
+			
+			try
+			{
 				// ** Sleep for 1 second **/
 				Thread.sleep(1000);
 			}
 
 			// ** If there is an error with the thread **//
-			catch (InterruptedException error) {
+			catch (InterruptedException error)
+			{
 				error.printStackTrace();
 			}
 		} while (true);
@@ -57,11 +63,15 @@ public class ClockEmulatorLive implements Runnable
 	 * @return If minute < 10, return a String with a 0 accompanied by the number of
 	 *         minutes after Else, return minute
 	 */
-	public static String LongMinute(int minute) {
+	public static String LongMinute(int minute)
+	{
 		String longMinute = "";
-		if (minute < 10) {
+		if (minute < 10)
+		{
 			longMinute = "0" + minute;
-		} else {
+		}
+		else
+		{
 			longMinute = "" + minute;
 		}
 		return longMinute;
@@ -74,25 +84,31 @@ public class ClockEmulatorLive implements Runnable
 	 * @param minute The current number of minutes (spent during this hour).
 	 * @return A String with the approximate time in a format HH:MM.
 	 */
-	public static String RoundHour(int hour, int minute) {
+	public static String RoundHour(int hour, int minute)
+	{
 		String longHour = "";
-		if (minute < 8) {
+		if (minute < 8)
+		{
 			longHour = hour + ":00";
 		}
 
-		else if (minute >= 8 && minute < 23) {
+		else if (minute >= 8 && minute < 23)
+		{
 			longHour = hour + ":15";
 		}
 
-		else if (minute >= 23 && minute < 38) {
+		else if (minute >= 23 && minute < 38)
+		{
 			longHour = hour + ":30";
 		}
 
-		else if (minute >= 38 && minute < 53) {
+		else if (minute >= 38 && minute < 53)
+		{
 			longHour = hour + ":45";
 		}
 
-		else {
+		else
+		{
 			longHour = (hour + 1) + ":00";
 		}
 		return longHour;

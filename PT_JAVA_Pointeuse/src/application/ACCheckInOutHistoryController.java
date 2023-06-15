@@ -54,14 +54,17 @@ public class ACCheckInOutHistoryController
 		{
 			for (Employee employee : department.getListEmployees())
 			{
-				for (Check check : employee.getListCheck()) {
+				for (Check check : employee.getListCheck())
+				{
 					String checkType;
 					//** If there isn't a check today **//
-					if (check.getisACheckIn()) {
+					if (check.getisACheckIn())
+					{
 						checkType = "in";
 					}
 					//** If the employee already checked in today **//
-					else {
+					else
+					{
 						checkType = "out";
 					}
 					//** We add in this list a class created specifically for the display by having the things cited above **//

@@ -30,19 +30,24 @@ public class ACManageEmployeeController
 	@FXML
 	private ComboBox<String> comboBoxDepartment;
 	
-	
+	/**
+	 * Take care of displaying all elements on the window.
+	 */
 	@FXML
 	private void initialize()
 	{
-		labelId.textProperty().addListener((observable, oldValue, newValue) -> {
-		    //System.out.println("label changed from " + oldValue + " to " + newValue);
+		//** We take the ID of the employee we want to modify or fire **//
+		labelId.textProperty().addListener((observable, oldValue, newValue) ->
+		{
 			employeeId = newValue;
 			textFieldLastName.setText(employeeId);
 			for (Department department : CentralApplication.Enterprise1.getListDepartment())
 			{
 				for (Employee employee : department.getListEmployees())
 				{
-					if (employee.getId().equals(employeeId)) {
+					//** We pre-fill the data of the employee we want to modify (to not rewrite everything) **//
+					if (employee.getId().equals(employeeId))
+					{
 						textFieldFirstName.setText(employee.getFirstName());
 						textFieldLastName.setText(employee.getLastName());
 						comboBoxDepartment.setValue(department.getName());
@@ -56,6 +61,9 @@ public class ACManageEmployeeController
 	/**
 	 * Define the function of a button to confirm the modification of an employee.
 	 * We return to the previous page after that.
+	 * We only change the first name and surname of the employee.
+	 * With our methods, changing the department means firing the employee to hire him in an other department.
+	 * (so his ID will change and we don't want that)
 	 * 
 	 * @param	event	the type of event (a left mouse click on a button).
 	 */
@@ -74,9 +82,6 @@ public class ACManageEmployeeController
 						//** We try to modify information about the employee **//
 						department.getEmployeeById(employeeId).setFirstName(textFieldFirstName.getText());
 						department.getEmployeeById(employeeId).setLastName(textFieldLastName.getText());
-						System.out.println(employeeId);
-						//CentralApplication.Enterprise1.getDepartmentByName(mainDepartmentBox.getValue()).addEmployee(new Employee(TextFirstName.getText(),TextLastName.getText()));
-						//System.out.println(CentralApplication.Enterprise1.getDepartmentByName(mainDepartmentBox.getValue()).getListEmployees().size());
 					}
 				}
 			}

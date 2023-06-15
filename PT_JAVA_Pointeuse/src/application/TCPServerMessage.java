@@ -6,10 +6,13 @@ import java.time.Instant;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 
-public class TCPServerMessage extends TCPServerBuilder implements Runnable {
+public class TCPServerMessage extends TCPServerBuilder implements Runnable
+{
 
-	public void run() {
-		do {
+	public void run()
+	{
+		do
+		{
 			String message = this.receive();
 			System.out.println("CentralApplication : Message Received : " + message);
 			String[] parsedMessage = message.split(",");
@@ -26,39 +29,51 @@ public class TCPServerMessage extends TCPServerBuilder implements Runnable {
 			System.out.println("Check employeeId : " + employeeId);
 			Employee EmployeeParam = null;
 			String NameDepartment=null;
-			for( Department Dp : CentralApplication.Enterprise1.getListDepartment()) {
-				for (Employee Em : Dp.getListEmployees()) {
-					if (Em.getId().equals(employeeId)) {
+			for( Department Dp : CentralApplication.Enterprise1.getListDepartment())
+			{
+				for (Employee Em : Dp.getListEmployees())
+				{
+					if (Em.getId().equals(employeeId))
+					{
 						EmployeeParam=Em;
 						NameDepartment=Dp.getName();
 					}
 				}
 			}
-			if (EmployeeParam!=null) {
+			if (EmployeeParam!=null)
+			{
 				Boolean IsACheckIn=true;
-				for (Check Ck: EmployeeParam.getListCheck()) {
-					if (Ck.getDate().toLocalDate().equals(parsedTimeStamp.toLocalDate())){
+				for (Check Ck: EmployeeParam.getListCheck())
+				{
+					if (Ck.getDate().toLocalDate().equals(parsedTimeStamp.toLocalDate()))
+					{
 						IsACheckIn=false;
 					}
 				}
-				try {
+				try
+				{
 					System.out.println(CentralApplication.Enterprise1.getDepartmentByName(NameDepartment).getEmployeeById(employeeId).getListCheck().size());
 					EmployeeParam.addCheck(new Check(IsACheckIn,false,parsedTimeStamp));
 					System.out.println(CentralApplication.Enterprise1.getDepartmentByName(NameDepartment).getEmployeeById(employeeId).getListCheck().size());
 				}
-				catch (IOException e) {
+				
+				catch (IOException error)
+				{
 					
 				}
 			}
-			else {
+			else
+			{
 				System.out.println("Id doesn't correspond to an existing employee");
 			}
 		} while (true);
 	}
 
-	public String receive() {
+	public String receive()
+	{
 		String msIn = "";
-		try {
+		try
+		{
 			setSocket();
 			s = ss.accept();
 			InputStream in = s.getInputStream();
@@ -67,7 +82,10 @@ public class TCPServerMessage extends TCPServerBuilder implements Runnable {
 			System.out.println("TCPServer : Message Received : " + msIn);
 			s.close();
 			ss.close();
-		} catch (IOException e) {
+		}
+		
+		catch (IOException error)
+		{
 			System.out.println("IOException TCPServerMessage");
 		}
 		return msIn;

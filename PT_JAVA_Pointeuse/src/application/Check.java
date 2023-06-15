@@ -12,36 +12,41 @@ import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleObjectProperty;
 
 /**
- * 
+ * the Check class containing information about a check in or a check out!
  */
-public class Check implements Serializable {
+public class Check implements Serializable
+{
 	public transient BooleanProperty IsACheckIn;
 	public transient BooleanProperty IsAnError;
 	public transient ObjectProperty<LocalDateTime> date;
 	
 	/**
-	 * 
+	 * Method to have "default" attributes for a new class.
 	 */
-	private void InitProperties() {
+	private void InitProperties()
+	{
 		this.IsACheckIn = new SimpleBooleanProperty();
 		this.IsAnError = new SimpleBooleanProperty();
 		this.date = new SimpleObjectProperty<>();
 	}
 
 	/**
-	 * 
+	 * Default constructor, use the previous method to create an object with default attributes.
 	 */
-	public Check() {
+	public Check()
+	{
 		InitProperties();
 	}
 
 	/**
+	 * Comfort builder, create an object initialized with all chosen arguments.
 	 * 
-	 * @param IsACheckIn
-	 * @param IsAnError
-	 * @param date
+	 * @param IsACheckIn	Boolean to know if the check's type is "in" or "out".
+	 * @param IsAnError		Boolean to know if the employee checked at the good time or if he is late/early.
+	 * @param date			The date when the check was made.
 	 */
-	public Check(boolean IsACheckIn, boolean IsAnError, LocalDateTime date) {
+	public Check(boolean IsACheckIn, boolean IsAnError, LocalDateTime date)
+	{
 		InitProperties();
 		this.IsACheckIn = new SimpleBooleanProperty(IsACheckIn);
 		this.IsAnError = new SimpleBooleanProperty(IsAnError);
@@ -49,42 +54,52 @@ public class Check implements Serializable {
 	}
 
 	/**
+	 * Getter of the attribute "IsACheckIn".
 	 * 
-	 * @return
+	 * @return	The type of the check (in or out).
 	 */
-	public boolean getisACheckIn() {
+	public boolean getisACheckIn()
+	{
 		return IsACheckIn.get();
 	}
 
 	/**
+	 * Getter of the attribute "IsAnError".
 	 * 
-	 * @return
+	 * @return	If the employee was on time or not.
 	 */
-	public boolean getisAnError() {
+	public boolean getisAnError()
+	{
 		return IsAnError.get();
 	}
 
 	/**
+	 * Getter of the attribute "date".
 	 * 
-	 * @return
+	 * @return	The date when the check was created.
 	 */
-	public LocalDateTime getDate() {
+	public LocalDateTime getDate()
+	{
 		return date.get();
 	}
 
 	/**
+	 * Setter for the attribute "IsACheckIn".
 	 * 
-	 * @param IsACheckIn
+	 * @param IsACheckIn	The type of the check (in or out).	
 	 */
-	public void setIsACheckIn(boolean IsACheckIn) {
+	public void setIsACheckIn(boolean IsACheckIn)
+	{
 		this.IsACheckIn = new SimpleBooleanProperty(IsACheckIn);
 	}
 
 	/**
+	 * Setter for the attribute "IsAnError".
 	 * 
-	 * @param IsAnError
+	 * @param IsAnError		If the employee was on time or not.
 	 */
-	public void setIsAnError(boolean IsAnError) {
+	public void setIsAnError(boolean IsAnError)
+	{
 		this.IsAnError = new SimpleBooleanProperty(IsAnError);
 	}
 
@@ -93,7 +108,8 @@ public class Check implements Serializable {
 	 * @param s
 	 * @throws IOException
 	 */
-	private void writeObject(ObjectOutputStream s) throws IOException {
+	private void writeObject(ObjectOutputStream s) throws IOException
+	{
 		s.defaultWriteObject();
 		s.writeBoolean(IsACheckIn.getValue());
 		s.writeBoolean(IsAnError.getValue());
@@ -107,7 +123,8 @@ public class Check implements Serializable {
 	 * @throws IOException
 	 * @throws ClassNotFoundException
 	 */
-	private void readObject(ObjectInputStream s) throws IOException, ClassNotFoundException {
+	private void readObject(ObjectInputStream s) throws IOException, ClassNotFoundException
+	{
 		InitProperties();
 		s.defaultReadObject();
 		IsACheckIn.set(s.readBoolean());

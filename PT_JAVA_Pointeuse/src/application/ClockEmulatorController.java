@@ -15,7 +15,8 @@ import javafx.scene.control.TextField;
  * Here, we need it to send messages between the Emulator and the Central Application.
  * Also, to modify the parameters for the TCP connection.
  */
-public class ClockEmulatorController {
+public class ClockEmulatorController
+{
 	@FXML
 	private TextField textFieldCheckInOut;
 
@@ -52,8 +53,10 @@ public class ClockEmulatorController {
 	 * @param	event	the type of event (a left mouse click on a button).
 	 */
 	@FXML
-	protected void handleButtonParametersAction(ActionEvent event) {
-		try {
+	protected void handleButtonParametersAction(ActionEvent event)
+	{
+		try
+		{
 			// ** We load the FXML file to display the window with the shape of the parameters page **//
 			ClockEmulator.root = FXMLLoader.load(getClass().getResource("AEParametersView.fxml"));
 
@@ -63,7 +66,9 @@ public class ClockEmulatorController {
 			ClockEmulator.primaryStage.show();
 
 			ClockEmulator.isOnMainPage = false;
-		} catch (Exception error) {
+		}
+		catch (Exception error)
+		{
 			error.printStackTrace();
 		}
 	}

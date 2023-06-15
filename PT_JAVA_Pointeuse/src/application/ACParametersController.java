@@ -9,7 +9,8 @@ import javafx.scene.control.TextField;
 /**
  * Class for the Parameters page display!
  */
-public class ACParametersController {
+public class ACParametersController
+{
 
 	@FXML
 	private TextField textFieldEmulatorAppIpAddress;

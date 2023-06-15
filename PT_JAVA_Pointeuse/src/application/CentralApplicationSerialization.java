@@ -23,8 +23,10 @@ public class CentralApplicationSerialization implements Runnable
     @Override
     public void run()
     {
-    	while(true) {
-    		try {
+    	while(true)
+    	{
+    		try
+    		{
         		FileOutputStream fos = new FileOutputStream("Enterprise1.dat");
                	ObjectOutputStream oos = new ObjectOutputStream(fos);
                	oos.writeObject(CentralApplication.Enterprise1);
@@ -33,12 +35,12 @@ public class CentralApplicationSerialization implements Runnable
                	fos.close();
                	sleep(5000);
     		}
-    		catch (IOException | InterruptedException e) {
+    		
+    		catch (IOException | InterruptedException error)
+    		{
     			
     		}
-
     	}
-        
     }
     
     /**
@@ -79,9 +81,12 @@ public class CentralApplicationSerialization implements Runnable
 		{
 			enterpriseParam = (Enterprise) ois.readObject();
 			int IDmax=0;
-			for (Department dp : enterpriseParam.getListDepartment()) {
-				for (Employee Emp : dp.getListEmployees()) {
-					if (IDmax<Integer.parseInt(Emp.getId())) {
+			for (Department dp : enterpriseParam.getListDepartment())
+			{
+				for (Employee Emp : dp.getListEmployees())
+				{
+					if (IDmax<Integer.parseInt(Emp.getId()))
+					{
 						IDmax=Integer.parseInt(Emp.getId());
 					}
 				}

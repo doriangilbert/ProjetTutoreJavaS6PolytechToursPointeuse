@@ -15,7 +15,8 @@ import javafx.scene.control.cell.PropertyValueFactory;
 /**
  * Class for the staff management page display!
  */
-public class ACStaffManagementController {
+public class ACStaffManagementController
+{
 
 	//** We create a table with all the necessary columns to display informations about the employees **//
 	@FXML

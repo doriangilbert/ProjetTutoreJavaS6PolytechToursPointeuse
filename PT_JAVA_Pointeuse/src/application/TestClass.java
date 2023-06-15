@@ -40,7 +40,8 @@ public class TestClass
 		enterprise1.addDepartement(Department2);
 		System.out.println(enterprise1.getName());
 
-		try {
+		try
+		{
 			System.out.println(enterprise1.getDepartmentByName("Informatique").getName());
 			System.out.println(enterprise1.getDepartmentByName("Informatique").getEmployeeById("1").getFirstName());
 			Serialization(enterprise1,"Enterprise1.dat");
@@ -53,8 +54,11 @@ public class TestClass
 					enterprise2.getDepartmentByName("Informatique").getEmployeeById("1").getEndWorkDayTime(DayOfWeek.MONDAY));
 			System.out.println(
 					enterprise2.getDepartmentByName("Informatique").getListEmployees().size());
-		} catch (IOException error) {
-			System.out.println("erreur");
+		}
+		
+		catch (IOException error)
+		{
+			System.out.println("error");
 		}
 
 	}
@@ -66,7 +70,8 @@ public class TestClass
 	 * @param NomFichier		The file where we want to stock all the information of the enterprise.
 	 * @throws IOException
 	 */
-	public static void Serialization(Enterprise enterpriseParam, String NomFichier) throws IOException {
+	public static void Serialization(Enterprise enterpriseParam, String NomFichier) throws IOException
+	{
 		FileOutputStream fos = new FileOutputStream(NomFichier);
 		ObjectOutputStream oos = new ObjectOutputStream(fos);
 		oos.writeObject(enterpriseParam);
@@ -80,14 +85,19 @@ public class TestClass
 	 * @return				An object Enterprise with all the informations from the file.
 	 * @throws IOException
 	 */
-	public static Enterprise Deserialization(String NomFichier) throws IOException {
+	public static Enterprise Deserialization(String NomFichier) throws IOException
+	{
 		FileInputStream fis = new FileInputStream(NomFichier);
 		ObjectInputStream ois = new ObjectInputStream(fis);
 		Enterprise enterpriseParam = new Enterprise();
-		try {
+		try
+		{
 			enterpriseParam = (Enterprise) ois.readObject();
-		} catch (ClassNotFoundException e) {
-
+		}
+		
+		catch (ClassNotFoundException error)
+		{
+			System.out.println("error deserialization");
 		}
 		ois.close();
 		return enterpriseParam;

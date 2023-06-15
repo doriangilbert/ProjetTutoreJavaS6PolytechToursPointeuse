@@ -9,7 +9,8 @@ import javafx.scene.control.TextField;
 /**
  * Class for the connection's parameters page display!
  */
-public class AEParametersController {
+public class AEParametersController
+{
 	
 	@FXML
 	private TextField textFieldCentralAppIpAddress;
@@ -32,8 +33,10 @@ public class AEParametersController {
 	 * @param 	event	the type of event (a left mouse click on a button).
 	 */
 	@FXML
-	protected void handleButtonBackToHome(ActionEvent event) {
-		try {
+	protected void handleButtonBackToHome(ActionEvent event)
+	{
+		try
+		{
 			//** We load the FXML file to display the window with the shape of the Main page **//
 			ClockEmulator.root = FXMLLoader.load(getClass().getResource("EmulatorApplicationView.fxml"));
 
@@ -43,7 +46,10 @@ public class AEParametersController {
 			ClockEmulator.primaryStage.show();
 
 			ClockEmulator.isOnMainPage = true;
-		} catch (Exception error) {
+		}
+		
+		catch (Exception error)
+		{
 			error.printStackTrace();
 		}
 	}

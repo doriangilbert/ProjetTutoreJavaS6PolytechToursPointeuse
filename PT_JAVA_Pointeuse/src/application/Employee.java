@@ -4,10 +4,11 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
+import java.time.DayOfWeek;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.time.*;
 
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
@@ -66,42 +67,66 @@ public class Employee implements Serializable
 	{
 		return LastName.get();
 	}
-
+	
 	public List<Check> getListCheck()
 	{
 		return ListCheck;
 	}
 	
+	/**
+	 * @param department the department to set
+	 */
 	public LocalTime getStartWorkDayTime(DayOfWeek dow)
 	{
 		return StartWork.get(dow);
 	}
 	
+	/**
+	 * @param department the department to set
+	 */
 	public void setStartWorkDayTime(DayOfWeek dow,LocalTime lt)
 	{
 		StartWork.replace(dow, lt);
 	}
 	
+	/**
+	 * @param department the department to set
+	 */
 	public LocalTime getEndWorkDayTime(DayOfWeek dow)
 	{
 		return EndWork.get(dow);
 	}
 	
+	/**
+	 * @param department the department to set
+	 */
 	public void setEndWorkDayTime(DayOfWeek dow,LocalTime lt)
 	{
 		EndWork.replace(dow, lt);
 	}
 	
+	/**
+	 * Setter for this.id
+	 * @param id	the new id of the employee
+	 */
 	public void setId(String id)
 	{
 		this.id = new SimpleStringProperty(id);
 	}
 
+	/**
+	 * Setter for this.firstName
+	 * @param 	firstName	the new first name of the employee
+	 */
 	public void setFirstName(String firstName)
 	{
 		FirstName = new SimpleStringProperty(firstName);
 	}
 
+	/**
+	 * Setter for this.lastName
+	 * @param	lastName	the new last name of the employee
+	 */
 	public void setLastName(String lastName)
 	{
 		LastName = new SimpleStringProperty(lastName);

@@ -1,13 +1,14 @@
 package application;
 
-import java.io.IOException;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.TextField;
 
+/**
+ * Class for the Department's creation page display!
+ */
 public class ACCreateDepartmentController {
 	
 	@FXML
@@ -24,17 +25,9 @@ public class ACCreateDepartmentController {
 		//** If we have filled all the text boxes **//
 		if (!textFieldDepartmentName.getText().isBlank())
 		{
-			//try
-			//{
-				//** We try to add the new department **//
-				Department department = new Department(textFieldDepartmentName.getText());
-				CentralApplication.Enterprise1.addDepartement(department);
-			//}
-			//catch (IOException error)
-			//{
-				//** If the department already exists, we do nothing **//
-				//System.out.println("The department already exists");	
-			//}
+			//** We try to add the new department **//
+			Department department = new Department(textFieldDepartmentName.getText());
+			CentralApplication.Enterprise1.addDepartement(department);
 		}
 		try
 		{

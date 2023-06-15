@@ -109,6 +109,11 @@ public class ACCreateEmployeeController
 		}
 	}
 	
+	/**
+	 * Define the function of a button to go to the department creation page.
+	 * 
+	 * @param 	event	the type of event (a left mouse click on a button).
+	 */
 	@FXML
 	protected void handleButtonCreateDepartment(ActionEvent event)
 	{

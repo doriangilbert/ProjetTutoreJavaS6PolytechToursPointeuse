@@ -56,7 +56,7 @@ public class ACStaffManagementController {
 		{
 			for (Employee employee : department.getListEmployees())
 			{
-				//** We had in this list a class created specifically for the display by having the ID, first name, surname of an employee and the department where he works **//
+				//** We add in this list a class created specifically for the display by having the ID, first name, surname of an employee and the department where he works **//
 				listEmployees.add(new EmployeeDept(employee.getId(), employee.getFirstName(), employee.getLastName(), department.getName()));
 			}
 		}

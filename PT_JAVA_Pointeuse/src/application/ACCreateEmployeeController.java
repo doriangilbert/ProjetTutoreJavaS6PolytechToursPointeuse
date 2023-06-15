@@ -32,14 +32,14 @@ public class ACCreateEmployeeController
 	@FXML
 	private void initialize()
 	{
-		//** The default value **//
-		mainDepartmentBox.setValue("Informatique");
 		ObservableList<String> mainString =FXCollections.observableArrayList();
 		//** We search for every department in the enterprise **/
-		for (Department dp : CentralApplication.Enterprise1.getListDepartment())
+		for (Department department : CentralApplication.Enterprise1.getListDepartment())
 		{
 			//** And we add them to the combobox **//
-			mainString.add(dp.getName());
+			mainString.add(department.getName());
+			//** The default value (instead of an empty combobox) **//
+			mainDepartmentBox.setValue(department.getName());
 		}
 		mainDepartmentBox.setItems(mainString);
 	}

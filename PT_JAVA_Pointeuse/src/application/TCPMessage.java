@@ -6,7 +6,7 @@ import java.io.OutputStream;
 import java.util.Random;
 
 /**
- * 
+ * The class that will initialize the message to send later via a TCP connection!
  */
 public class TCPMessage extends TCPBuffer
 {

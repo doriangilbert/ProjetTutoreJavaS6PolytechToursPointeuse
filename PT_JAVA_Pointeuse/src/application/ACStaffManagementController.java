@@ -42,20 +42,25 @@ public class ACStaffManagementController {
 	@FXML
 	private void initialize()
 	{
+		//** We define the columns and the information they will show **//
 		tableColumnID.setCellValueFactory(new PropertyValueFactory<>("id"));
 		tableColumnFirstName.setCellValueFactory(new PropertyValueFactory<>("firstName"));
 		tableColumnLastName.setCellValueFactory(new PropertyValueFactory<>("lastName"));
 		tableColumnDepartment.setCellValueFactory(new PropertyValueFactory<>("department"));
 
+		//** We create a list to make it easier to display on a tableview **//
 		ObservableList<EmployeeDept> listEmployees = FXCollections.observableArrayList();
 
+		//** And we stock all information concerning every employee in this list **//
 		for (Department department : CentralApplication.Enterprise1.getListDepartment())
 		{
 			for (Employee employee : department.getListEmployees())
 			{
+				//** We had in this list a class created specifically for the display by having the ID, first name, surname of an employee and the department where he works **//
 				listEmployees.add(new EmployeeDept(employee.getId(), employee.getFirstName(), employee.getLastName(), department.getName()));
 			}
 		}
+		//** Ready to be displayed **//
 		tableViewStaffManagement.setItems(listEmployees);
 		
 		ObservableList<String> mainString =FXCollections.observableArrayList();
@@ -105,7 +110,7 @@ public class ACStaffManagementController {
 	 * @param event the type of event (a left mouse click on a button).
 	 */
 	@FXML
-	protected void handleButtonModifyEmployee(ActionEvent event)
+	protected void handleButtonManageEmployee(ActionEvent event)
 	{
 		try
 		{

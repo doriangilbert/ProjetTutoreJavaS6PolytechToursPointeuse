@@ -47,6 +47,11 @@
             <ComboBox fx:id="comboBoxDepartment" layoutX="295.0" layoutY="244.0" prefHeight="31.0" prefWidth="267.0" />
             <Button id="buttonConfirm" layoutX="283.0" layoutY="303.0" mnemonicParsing="false" onAction="#handleButtonConfirm" text="Confirm" />
             <Button id="buttonBack" layoutX="295.0" layoutY="355.0" mnemonicParsing="false" onAction="#handleButtonBack" text="Back" />
+         	<Button layoutX="481.0" layoutY="303.0" mnemonicParsing="false" prefHeight="67.0" prefWidth="109.0" onAction="#handleButtonFire" text="FIRE the employee" textAlignment="CENTER" textFill="RED" wrapText="true">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
          </children>
     </AnchorPane>
   </children>

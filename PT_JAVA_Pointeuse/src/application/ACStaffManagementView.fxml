@@ -31,7 +31,7 @@
             </TableView>
             <Button id="buttonCreateEmployee" layoutX="80.0" layoutY="306.0" mnemonicParsing="false" onAction="#handleButtonCreateEmployee" text="Create employee" />
             <Button id="buttonBackToHome" layoutX="265.0" layoutY="355.0" mnemonicParsing="false" onAction="#handleButtonBackToHome" text="Back to home" />
-            <Button id="buttonModifyRemove" layoutX="452.0" layoutY="295.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="118.0" text="Modify / Remove employee" textAlignment="CENTER" wrapText="true" onAction="#handleButtonModifyEmployee" />
+            <Button id="buttonModifyRemove" layoutX="452.0" layoutY="295.0" mnemonicParsing="false" onAction="#handleButtonManageEmployee" prefHeight="47.0" prefWidth="118.0" text="Modify / Remove employee" textAlignment="CENTER" wrapText="true" />
             <ComboBox id="comboBoxIdEmployee" fx:id="mainIdBox" layoutX="290.0" layoutY="306.0" prefWidth="150.0" />
          </children>
     </AnchorPane>

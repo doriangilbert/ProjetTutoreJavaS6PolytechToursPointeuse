@@ -6,7 +6,7 @@ import java.net.ServerSocket;
 import java.net.Socket;
 
 /**
- * 
+ * builder class for the creation of the socket for the TCPMassage class (server side)!
  */
 public class TCPServerBuilder extends TCPMessage
 {
@@ -15,7 +15,7 @@ public class TCPServerBuilder extends TCPMessage
 	InetSocketAddress isA;
 
 	/**
-	 * 
+	 * Default constructor, define the attributes with default values.
 	 */
 	TCPServerBuilder()
 	{
@@ -25,6 +25,7 @@ public class TCPServerBuilder extends TCPMessage
 	}
 
 	/**
+	 * Create a socket.
 	 * 
 	 * @throws IOException
 	 */

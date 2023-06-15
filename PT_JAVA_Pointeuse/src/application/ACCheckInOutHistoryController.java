@@ -31,6 +31,7 @@ public class ACCheckInOutHistoryController
 	@FXML
 	private TableColumn<EmployeeCheck, String> tableColumnType;
 	
+	
 	@FXML
 	private void initialize()
 	{

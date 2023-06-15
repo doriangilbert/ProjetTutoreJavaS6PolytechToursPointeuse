@@ -5,7 +5,7 @@ import java.net.InetSocketAddress;
 import java.net.Socket;
 
 /**
- * builder class for the creation of the socket for the TCPMassage class!
+ * builder class for the creation of the socket for the TCPMassage class (client side)!
  */
 public class TCPClientBuilder extends TCPMessage
 {

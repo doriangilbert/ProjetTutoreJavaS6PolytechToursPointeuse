@@ -53,7 +53,7 @@ public class ACCreateEmployeeController
 	protected void handleButtonConfirm(ActionEvent event)
 	{
 		//** If we have filled all the text boxes **//
-		if (TextFirstName.getText()!=null && TextFirstName.getText()!=null)
+		if (!TextFirstName.getText().isBlank() && !TextFirstName.getText().isBlank())
 		{
 			try
 			{
@@ -67,7 +67,6 @@ public class ACCreateEmployeeController
 				System.out.println("The employee already exists");	
 			}
 		}
-		
 		try
 		{
 			//** We load the FXML file to display the window with the shape of the staff management page **//
